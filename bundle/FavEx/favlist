@@ -1,0 +1,19 @@
+"! h : toggle help
+"! <Enter> : open file(dir) in this window
+"! o : open file(dir) in new window
+"! O : open file(dir) in previous window
+"! d : delete entry
+"! q : close favex window
+"! :he favex for detailed help
+" Files (do not delete this line)
+e:\Program Files\Vim\vimfiles\.gitmodules
+e:\Program Files\Vim\vimfiles\bundle\mycoolsnippets\markdown_my.snippets
+d:\settings\mozilla\firefox\_vimperatorrc
+d:\Files\word 文档\vim 命令.txt
+E:\program files\vim\vimfiles\bundle\snipmate\snippets\markdown.snippets
+E:\Program Files\Vim\vimfiles\bundle\snipMate\snippets\python.snippets
+E:\Program Files\Vim\_vimrc
+" Directories (do not delete this line)
+E:\Program Files\Vim\vimfiles\bundle\FavEx
+e:\Program Files\Vim\vimfiles
+E:\Program Files\Vim
