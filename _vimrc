@@ -1,15 +1,88 @@
 
+
+" ================== vundle begin ============================
 "vim插件pathogen: 管理插件的插件
 
 "加载 pathogen
-runtime bundle/vim-pathogen/autoload/pathogen.vim
+"runtime bundle/vim-pathogen/autoload/pathogen.vim
 
 set nocompatible
-autocmd!
+"autocmd!
 filetype off
 "call pathogen#runtime_append_all_bundles()
 "call pathogen#helptags()
-call pathogen#infect() 
+"call pathogen#infect()
+
+set nocompatible               " be iMproved
+filetype off                   " required!
+
+" 加载 vundle
+set rtp+=$VIM/vimfiles/bundle/vundle/
+"runtime bundle/vundle/autoload/vundle.vim
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required!
+Bundle 'gmarik/vundle'
+
+
+" Bundles
+
+" original repos on github
+Bundle 'davidhalter/jedi-vim'
+Bundle 'sbecker/github_editor_theme'
+Bundle 'godlygeek/tabular'
+Bundle 'SirVer/ultisnips'
+Bundle 'vim-jp/autofmt'
+Bundle 'mjbrownie/vim-htmldjango_omnicomplete'
+Bundle 'scrooloose/syntastic'
+Bundle 'hallison/vim-markdown'
+Bundle 'sukima/xmledit'
+Bundle 'majutsushi/tagbar'
+Bundle 'ervandew/supertab'
+Bundle 'jelera/vim-javascript-syntax'
+Bundle 'othree/html5.vim'
+Bundle 'lepture/vim-css'
+Bundle 'Shougo/neocomplcache'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'nvie/vim-flake8'
+Bundle 'scrooloose/nerdtree'
+Bundle 'kien/ctrlp.vim'
+Bundle 'tomasr/molokai'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'jnwhiteh/vim-golang'
+Bundle 'mbbill/undotree'
+Bundle 'scrooloose/nerdtree'
+Bundle 'Lokaltog/vim-easymotion'
+"Bundle 'tpope/vim-sensible'
+"Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+
+" vim-scripts repos
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+Bundle 'Jinja'
+Bundle 'pythoncomplete'
+Bundle 'AutoComplPop'
+Bundle 'django.vim'
+Bundle 'mru.vim'
+Bundle 'matchit.zip'
+Bundle 'AutoClose'
+"'bufexplorer.zip'
+
+" non github repos
+"Bundle 'git://git.wincent.com/command-t.git'
+
+" git repos on your local machine (ie. when working on your own plugin)
+"Bundle 'file:///Users/gmarik/path/to/plugin'
+
+
+" ================== vundle end ============================
+
+
+
+
+
 filetype plugin indent on
 syntax on
 filetype plugin on
@@ -215,8 +288,9 @@ nmap <leader>dm :FD<cr>
 nmap <leader>om :FE<cr>
 
 " NERD_tree 插件
- nmap <leader>t :NERDTree<cr>
- nmap <leader><S-T> :NERDTreeClose<cr>
+ "nmap <leader>t :NERDTree<cr>
+nmap <leader><S-T> :NERDTreeClose<cr>
+let NERDTreeWinPos='right'
 "cmap tree NERDTree
 "cmap ctree NERDTreeClose<cr>
 
@@ -311,7 +385,7 @@ let g:pylint_onwrite = 0
 "let g:flake8_max_line_length=79
 "autocmd BufWritePost *.py call Flake8()
 "let g:flake8_ignore="E128"
-let g:flake8_ignore="E501"
+"let g:flake8_ignore="E501"
 
 " jedi-vim
 let g:jedi#use_tabs_not_buffers = 0
@@ -524,7 +598,7 @@ let delimitMate_autoclose = 1
 
 " tagbar
 "let g:tagbar_ctags_bin = 'E:\program files\Ctags\ctags.exe'
-"let g:tagbar_left = 1
+let g:tagbar_left = 1
 "nnoremap <silent> <F9> :TagbarToggle<CR>
 autocmd FileType xyz nested :TagbarOpen
 
@@ -564,9 +638,18 @@ map <leader>j :RopeGotoDefinition<CR>
 
 " Syntastic
 map <leader><S-D> :SyntasticToggleMode<CR>
+"exec SyntasticToggleMode
+"map <F7> :SyntasticCheck<CR>
+"let g:syntastic_python_checkers=['python', 'pep8', 'py3kwarn', 'flake8', 'pylama']
+"let g:syntastic_python_checkers=['pylama']
+let g:syntastic_python_checkers=['flake8']
+let g:syntastic_auto_loc_list=1
+"let g:syntastic_python_pylama_args='-l pep8,pep257,mccabe,pyflakes' ",pylint'
+"let g:syntastic_python_pylama_ignore='C0110'
+"let g:lint_ignore='C0110'
 
 " 设置撤销文件 un~ 的保存位置
-set undodir=d:\\Temp/
+set undodir=d:\\Temp/vims/
 
 
 " solarized
@@ -575,7 +658,7 @@ if has('gui_running')
 else
     set background=dark
 endif
-colorscheme solarized
+"colorscheme solarized
 
 colorscheme github
 
@@ -586,3 +669,24 @@ colorscheme github
 " 设置换行格式为 unix
 "autocmd FileType python setlocal fileformat=unix
 autocmd FileType sh setlocal fileformat=unix
+
+
+" ============= python-model ===============
+let g:pymode_run = 0
+
+let g:pymode_lint = 0
+let g:pymode_lint_write = 0
+
+let g:pymode_rope = 0
+
+let g:pymode_motion = 0
+
+let g:pymode_virtualenv = 0
+
+
+" ========== indent-guides ========
+let g:indent_guides_auto_colors = 0
+nmap <silent> <Leader>ig <Plug>IndentGuidesToggle
+
+" 显示一条竖线
+set cc=80  " 在80行位置显示一条竖线
