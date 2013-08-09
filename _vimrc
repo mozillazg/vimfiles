@@ -40,14 +40,14 @@ if has('vim_starting')
 
 " original repos on github
 NeoBundle 'Shougo/vimproc'
-"NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neocomplcache'
+"NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/vimshell.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'ricardovaleriano/vim-github-theme'
 NeoBundle 'godlygeek/tabular'
-"NeoBundle 'SirVer/ultisnips'
+NeoBundle 'SirVer/ultisnips'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'vim-jp/autofmt'
 NeoBundle 'mjbrownie/vim-htmldjango_omnicomplete'
@@ -70,6 +70,9 @@ NeoBundle 'jnwhiteh/vim-golang'
 NeoBundle 'mbbill/undotree'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'davidhalter/jedi-vim'
+NeoBundle 'tell-k/vim-autopep8'
+NeoBundle 'daylerees/colour-schemes', {'rtp': 'vim-themes'}
 "NeoBundle 'tpope/vim-sensible'
 "NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 
@@ -390,8 +393,8 @@ set linebreak
 "set cursorcolumn
 
 " pylint.vim
-autocmd FileType python compiler pylint
-let g:pylint_onwrite = 0
+"autocmd FileType python compiler pylint
+"let g:pylint_onwrite = 0
 
 " snipmate
 "let g:snips_trigger_key='<c-j>'
@@ -413,7 +416,7 @@ let g:pylint_onwrite = 0
 "let g:flake8_max_line_length=79
 "autocmd BufWritePost *.py call Flake8()
 "let g:flake8_ignore="E128"
-"let g:flake8_ignore="E501"
+let g:flake8_ignore="E501"
 
 " jedi-vim
 let g:jedi#use_tabs_not_buffers = 0
@@ -672,6 +675,7 @@ map <leader><S-D> :SyntasticToggleMode<CR>
 "let g:syntastic_python_checkers=['python', 'pep8', 'py3kwarn', 'flake8', 'pylama']
 "let g:syntastic_python_checkers=['pylama']
 let g:syntastic_python_checkers=['flake8']
+let g:syntastic_python_flake8_ignore='E501'
 let g:syntastic_auto_loc_list=1
 "let g:syntastic_python_pylama_args='-l pep8,pep257,mccabe,pyflakes' ",pylint'
 "let g:syntastic_python_pylama_ignore='C0110'
@@ -733,3 +737,7 @@ let g:neosnippet#snippets_directory='$VIM/vimfiles/mycoolsnippets'
 nmap <leader>tr :VimFilerExplorer<cr>
 nmap <leader><S-T>r :VimFilerClose<cr>
 "let NERDTreeWinPos='right'
+
+
+" =========== UndoTree ==========="
+nmap <leader>ut :UndotreeToggle<cr>
