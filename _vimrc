@@ -30,7 +30,7 @@ Bundle 'gmarik/vundle'
 
 " original repos on github
 Bundle 'davidhalter/jedi-vim'
-Bundle 'sbecker/github_editor_theme'
+Bundle 'ricardovaleriano/vim-github-theme'
 Bundle 'godlygeek/tabular'
 Bundle 'SirVer/ultisnips'
 Bundle 'vim-jp/autofmt'
@@ -278,7 +278,7 @@ nmap <leader>sm :source $myvimrc<cr>
 nmap <C-T> :tabe<cr>
 "nmap <C-W> :close!<cr>
 "nmap <C-Tab> gt
-"nmap <leader>gl :set nohlsearch<cr>
+nmap <leader>nh :set nohlsearch<cr>
 
 
 "map <F5c :ls<cr>:e #
@@ -288,8 +288,8 @@ nmap <leader>dm :FD<cr>
 nmap <leader>om :FE<cr>
 
 " NERD_tree 插件
- "nmap <leader>t :NERDTree<cr>
-nmap <leader><S-T> :NERDTreeClose<cr>
+nmap <leader>tr :NERDTree<cr>
+nmap <leader><S-T>r :NERDTreeClose<cr>
 let NERDTreeWinPos='right'
 "cmap tree NERDTree
 "cmap ctree NERDTreeClose<cr>
@@ -339,7 +339,7 @@ set ignorecase
 "set incsearch
 
 "Pydiction
-"let g:pydiction_location = '$VIM/vimfiles/bundle/pydiction-1.2/complete-dict'
+"let g:pydiction_location = '$VIM/vimfiles/complete-dict'
 
 set viminfo='1000,n$vim/viminfo
 
@@ -568,7 +568,7 @@ function! AdjustWindowHeight(minheight, maxheight)
 endfunction
 
 " MRU
-let MRU_File=$VIM/vimfiles/_vim_mru_files
+let MRU_File='e:/Program Files/Vim/vimfiles/_vim_mru_files'
 let MRU_Max_Entries = 1000
 
 
@@ -600,6 +600,7 @@ let delimitMate_autoclose = 1
 "let g:tagbar_ctags_bin = 'E:\program files\Ctags\ctags.exe'
 let g:tagbar_left = 1
 "nnoremap <silent> <F9> :TagbarToggle<CR>
+nnoremap <leader>tg :TagbarToggle<CR>
 autocmd FileType xyz nested :TagbarOpen
 
 
