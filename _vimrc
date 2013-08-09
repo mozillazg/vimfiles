@@ -317,7 +317,7 @@ let xml_syntax_folding=1      " XML
 let python_fold=1
 
 "启用 neocomplcache 插件
-"source $VIM/vimfiles/bundle/neocomplcache.conf
+"source $VIM/vimfiles/neocomplcache.conf
 let g:neocomplcache_enable_at_startup=0
 let g:neoComplcache_disableautocomplete=0
 "let g:neocomplcache_enable_underbar_completion = 1
@@ -568,7 +568,7 @@ function! AdjustWindowHeight(minheight, maxheight)
 endfunction
 
 " MRU
-let MRU_File = 'E:\Program Files\Vim\vimfiles\bundle\_vim_mru_files'
+let MRU_File=$VIM/vimfiles/_vim_mru_files
 let MRU_Max_Entries = 1000
 
 
@@ -629,7 +629,7 @@ endfunc
 
 
 " UltiSnips
-let g:UltiSnipsSnippetDirectories=['UltiSnips', '../mycoolsnippets']
+let g:UltiSnipsSnippetDirectories=['UltiSnips', '../../mycoolsnippets']
 "let g:UltiSnipsSnippetDirectories=['E:\Program Files\Vim\vimfiles\bundle\mycoolsnippets']
 "let g:UltiSnipsDoHash=0
 
