@@ -1,6 +1,6 @@
 
 
-" ================== vundle begin ============================
+" ================== neobundle begin ============================
 "vim插件pathogen: 管理插件的插件
 
 "加载 pathogen
@@ -17,75 +17,103 @@ set nocompatible               " be iMproved
 filetype off                   " required!
 
 " 加载 vundle
-set rtp+=$VIM/vimfiles/bundle/vundle/
+"set rtp+=$VIM/vimfiles/bundle/vundle/
 "runtime bundle/vundle/autoload/vundle.vim
-call vundle#rc()
+"call vundle#rc()
+"
+" 加载 neobundle
+if has('vim_starting')
+   set runtimepath+=$VIM/vimfiles/bundle/neobundle.vim/
+ endif
+
+ call neobundle#rc(expand('$VIM/vimfiles/bundle/'))
+
+ " Let NeoBundle manage NeoBundle
+ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " let Vundle manage Vundle
 " required!
-Bundle 'gmarik/vundle'
+"Bundle 'gmarik/vundle'
 
 
-" Bundles
+" NeoBundles
 
 " original repos on github
-Bundle 'davidhalter/jedi-vim'
-Bundle 'ricardovaleriano/vim-github-theme'
-Bundle 'godlygeek/tabular'
-Bundle 'SirVer/ultisnips'
-Bundle 'vim-jp/autofmt'
-Bundle 'mjbrownie/vim-htmldjango_omnicomplete'
-Bundle 'scrooloose/syntastic'
-Bundle 'hallison/vim-markdown'
-Bundle 'sukima/xmledit'
-Bundle 'majutsushi/tagbar'
-Bundle 'ervandew/supertab'
-Bundle 'jelera/vim-javascript-syntax'
-Bundle 'othree/html5.vim'
-Bundle 'lepture/vim-css'
-Bundle 'Shougo/neocomplcache'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'nvie/vim-flake8'
-Bundle 'scrooloose/nerdtree'
-Bundle 'kien/ctrlp.vim'
-Bundle 'tomasr/molokai'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'jnwhiteh/vim-golang'
-Bundle 'mbbill/undotree'
-Bundle 'scrooloose/nerdtree'
-Bundle 'Lokaltog/vim-easymotion'
-"Bundle 'tpope/vim-sensible'
-"Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+NeoBundle 'Shougo/vimproc'
+"NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/vimshell.vim'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimfiler.vim'
+NeoBundle 'ricardovaleriano/vim-github-theme'
+NeoBundle 'godlygeek/tabular'
+"NeoBundle 'SirVer/ultisnips'
+NeoBundle 'honza/vim-snippets'
+NeoBundle 'vim-jp/autofmt'
+NeoBundle 'mjbrownie/vim-htmldjango_omnicomplete'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'hallison/vim-markdown'
+NeoBundle 'sukima/xmledit'
+NeoBundle 'majutsushi/tagbar'
+NeoBundle 'ervandew/supertab'
+NeoBundle 'jelera/vim-javascript-syntax'
+NeoBundle 'othree/html5.vim'
+NeoBundle 'lepture/vim-css'
+NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'Lokaltog/vim-powerline'
+NeoBundle 'nvie/vim-flake8'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'tomasr/molokai'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'jnwhiteh/vim-golang'
+NeoBundle 'mbbill/undotree'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'Lokaltog/vim-easymotion'
+"NeoBundle 'tpope/vim-sensible'
+"NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 
 " vim-scripts repos
-Bundle 'L9'
-Bundle 'FuzzyFinder'
-Bundle 'Jinja'
-Bundle 'pythoncomplete'
-Bundle 'AutoComplPop'
-Bundle 'django.vim'
-Bundle 'mru.vim'
-Bundle 'matchit.zip'
-Bundle 'AutoClose'
+NeoBundle 'L9'
+NeoBundle 'FuzzyFinder'
+NeoBundle 'Jinja'
+NeoBundle 'pythoncomplete'
+NeoBundle 'AutoComplPop'
+NeoBundle 'django.vim'
+NeoBundle 'mru.vim'
+NeoBundle 'matchit.zip'
+NeoBundle 'AutoClose'
 "'bufexplorer.zip'
 
+ "gist repos
+"NeoBundle 'gist:Shougo/656148', {
+      "\ 'name': 'everything.vim',
+      "\ 'script_type': 'plugin'}
+
 " non github repos
-"Bundle 'git://git.wincent.com/command-t.git'
+"NeoBundle 'git://git.wincent.com/command-t.git'
 
 " git repos on your local machine (ie. when working on your own plugin)
-"Bundle 'file:///Users/gmarik/path/to/plugin'
+"NeoBundle 'file:///Users/gmarik/path/to/plugin'
 
 
 " ================== vundle end ============================
-
-
-
-
-
 filetype plugin indent on
 syntax on
 filetype plugin on
+
+"
+" Brief help
+" :NeoBundleList          - list configured bundles
+" :NeoBundleInstall(!)    - install(update) bundles
+" :NeoBundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+
+" Installation check.
+NeoBundleCheck
+
+
+
+
 
 " 不与 vi 完全兼容
 set nocompatible
@@ -251,7 +279,7 @@ endif
 " 设置窗口的起始位置和大小
 "winpos 275 15
 set lines=30
-set columns=83
+set columns=90
 
 "设置备份文件目录
 set backupdir=d:\\Temp/
@@ -288,9 +316,9 @@ nmap <leader>dm :FD<cr>
 nmap <leader>om :FE<cr>
 
 " NERD_tree 插件
-nmap <leader>tr :NERDTree<cr>
-nmap <leader><S-T>r :NERDTreeClose<cr>
-let NERDTreeWinPos='right'
+"nmap <leader>tr :NERDTree<cr>
+"nmap <leader><S-T>r :NERDTreeClose<cr>
+"let NERDTreeWinPos='right'
 "cmap tree NERDTree
 "cmap ctree NERDTreeClose<cr>
 
@@ -691,3 +719,17 @@ nmap <silent> <Leader>ig <Plug>IndentGuidesToggle
 
 " 显示一条竖线
 set cc=80  " 在80行位置显示一条竖线
+
+
+" ========== neosnippet ==========="
+" Enable snipMate compatibility feature.
+let g:neosnippet#enable_snipmate_compatibility = 1
+" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory='$VIM/vimfiles/bundle/vim-snippets/snippets'
+let g:neosnippet#snippets_directory='$VIM/vimfiles/mycoolsnippets'
+
+
+" =========== vimfiler ==========="
+nmap <leader>tr :VimFilerExplorer<cr>
+nmap <leader><S-T>r :VimFilerClose<cr>
+"let NERDTreeWinPos='right'
