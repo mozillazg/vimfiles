@@ -48,19 +48,18 @@ NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'ricardovaleriano/vim-github-theme'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'SirVer/ultisnips'
-NeoBundle 'honza/vim-snippets'
+"NeoBundle 'honza/vim-snippets'
 NeoBundle 'vim-jp/autofmt'
 NeoBundle 'mjbrownie/vim-htmldjango_omnicomplete'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'hallison/vim-markdown'
 NeoBundle 'sukima/xmledit'
-NeoBundle 'majutsushi/tagbar'
+"NeoBundle 'majutsushi/tagbar'
 NeoBundle 'ervandew/supertab'
 NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'lepture/vim-css'
 NeoBundle 'scrooloose/nerdcommenter'
-NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'nvie/vim-flake8'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'kien/ctrlp.vim'
@@ -73,6 +72,7 @@ NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'tell-k/vim-autopep8'
 NeoBundle 'daylerees/colour-schemes', {'rtp': 'vim-themes'}
+NeoBundle 'bling/vim-airline'
 "NeoBundle 'tpope/vim-sensible'
 "NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 
@@ -85,7 +85,7 @@ NeoBundle 'AutoComplPop'
 NeoBundle 'django.vim'
 NeoBundle 'mru.vim'
 NeoBundle 'matchit.zip'
-NeoBundle 'AutoClose'
+"NeoBundle 'AutoClose'
 "'bufexplorer.zip'
 
  "gist repos
@@ -629,10 +629,10 @@ let delimitMate_autoclose = 1
 
 " tagbar
 "let g:tagbar_ctags_bin = 'E:\program files\Ctags\ctags.exe'
-let g:tagbar_left = 1
+"let g:tagbar_left = 1
 "nnoremap <silent> <F9> :TagbarToggle<CR>
-nnoremap <leader>tg :TagbarToggle<CR>
-autocmd FileType xyz nested :TagbarOpen
+"nnoremap <leader>tg :TagbarToggle<CR>
+"autocmd FileType xyz nested :TagbarOpen
 
 
 " autopep8
