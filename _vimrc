@@ -44,7 +44,7 @@ NeoBundle 'Shougo/neocomplcache'
 "NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/vimshell.vim'
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimfiler.vim'
+"NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'ricardovaleriano/vim-github-theme'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'SirVer/ultisnips'
@@ -67,12 +67,12 @@ NeoBundle 'tomasr/molokai'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'jnwhiteh/vim-golang'
 NeoBundle 'mbbill/undotree'
-NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'tell-k/vim-autopep8'
 NeoBundle 'daylerees/colour-schemes', {'rtp': 'vim-themes'}
 NeoBundle 'bling/vim-airline'
+NeoBundle 'chrisbra/color_highlight'
 "NeoBundle 'tpope/vim-sensible'
 "NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 
@@ -319,9 +319,9 @@ nmap <leader>dm :FD<cr>
 nmap <leader>om :FE<cr>
 
 " NERD_tree 插件
-"nmap <leader>tr :NERDTree<cr>
-"nmap <leader><S-T>r :NERDTreeClose<cr>
-"let NERDTreeWinPos='right'
+nmap <leader>tr :NERDTree<cr>
+nmap <leader><S-T>r :NERDTreeClose<cr>
+let NERDTreeWinPos='right'
 "cmap tree NERDTree
 "cmap ctree NERDTreeClose<cr>
 
@@ -693,7 +693,7 @@ else
 endif
 "colorscheme solarized
 
-colorscheme github
+colorscheme Earthsong
 
 
 " 在每行前显示相对于光标所在的行的行号
@@ -734,8 +734,8 @@ let g:neosnippet#snippets_directory='$VIM/vimfiles/mycoolsnippets'
 
 
 " =========== vimfiler ==========="
-nmap <leader>tr :VimFilerExplorer<cr>
-nmap <leader><S-T>r :VimFilerClose<cr>
+"nmap <leader>tr :VimFilerExplorer<cr>
+"nmap <leader><S-T>r :VimFilerClose<cr>
 "let NERDTreeWinPos='right'
 
 
