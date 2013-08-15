@@ -1,16 +1,17 @@
 snippet #!/
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+options head
+    #!/usr/bin/env python
+    # -*- coding: utf-8 -*-
 
-$0
-endsnippet
-# 设置系统编码
-snippet xtbm "设置系统编码" b
-import sys
+    ${1}
 
-if sys.getdefaultencoding() != 'utf-8':
-    reload(sys)
-    sys.setdefaultencoding('utf-8')
+# 璁剧疆绯荤粺缂栫爜
+snippet xtbm
+    import sys
 
-$0
-endsnippet
+    if sys.getdefaultencoding() != 'utf-8':
+        reload(sys)
+        sys.setdefaultencoding('utf-8')
+
+    ${1}
+

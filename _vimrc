@@ -41,21 +41,22 @@ if has('vim_starting')
 " original repos on github
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/neocomplcache'
-"NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/vimshell.vim'
-NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/context_filetype.vim'
+"NeoBundle 'Shougo/vimshell.vim'
+"NeoBundle 'Shougo/unite.vim'
 "NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'ricardovaleriano/vim-github-theme'
-NeoBundle 'godlygeek/tabular'
-NeoBundle 'SirVer/ultisnips'
-"NeoBundle 'honza/vim-snippets'
+"NeoBundle 'godlygeek/tabular'
+"NeoBundle 'SirVer/ultisnips'
+NeoBundle 'honza/vim-snippets'
 NeoBundle 'vim-jp/autofmt'
 NeoBundle 'mjbrownie/vim-htmldjango_omnicomplete'
 NeoBundle 'scrooloose/syntastic'
-NeoBundle 'hallison/vim-markdown'
+"NeoBundle 'hallison/vim-markdown'
 NeoBundle 'sukima/xmledit'
 "NeoBundle 'majutsushi/tagbar'
-NeoBundle 'ervandew/supertab'
+"NeoBundle 'ervandew/supertab'
 NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'lepture/vim-css'
@@ -67,24 +68,31 @@ NeoBundle 'tomasr/molokai'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'jnwhiteh/vim-golang'
 NeoBundle 'mbbill/undotree'
-NeoBundle 'Lokaltog/vim-easymotion'
+"NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'tell-k/vim-autopep8'
 NeoBundle 'daylerees/colour-schemes', {'rtp': 'vim-themes'}
 NeoBundle 'bling/vim-airline'
 NeoBundle 'chrisbra/color_highlight'
+NeoBundle 'othree/html5.vim'
+"NeoBundle 'gcmt/breeze.vim'
+"NeoBundle 'rkumar/html.vim'
+"NeoBundle 'mattn/emmet-vim'
+"NeoBundle 'ervandew/sgmlendtag'
 "NeoBundle 'tpope/vim-sensible'
 "NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 
 " vim-scripts repos
 NeoBundle 'L9'
 NeoBundle 'FuzzyFinder'
-NeoBundle 'Jinja'
-NeoBundle 'pythoncomplete'
-NeoBundle 'AutoComplPop'
+"NeoBundle 'Jinja'
+"NeoBundle 'pythoncomplete'
+"NeoBundle 'AutoComplPop'
 NeoBundle 'django.vim'
 NeoBundle 'mru.vim'
 NeoBundle 'matchit.zip'
+"NeoBundle 'closetag.vim'
+NeoBundle 'xml.vim'
 "NeoBundle 'AutoClose'
 "'bufexplorer.zip'
 
@@ -285,7 +293,7 @@ set lines=30
 set columns=90
 
 "设置备份文件目录
-set backupdir=d:\\Temp/
+set backupdir=d:\\Temp\\vims
 
 "让 vim 保存一个原始文件，且后缀是
 "set patchmode=.orig
@@ -426,8 +434,8 @@ let g:jedi#popup_on_dot = 0
 
 "https://github.com/humiaozuzu/dot-vimrc
 " highlight current line
-"au WinLeave * set nocursorline nocursorcolumn
-"au WinEnter * set cursorline cursorcolumn
+au WinLeave * set nocursorline nocursorcolumn
+au WinEnter * set cursorline cursorcolumn
 "set cursorline cursorcolumn
 "set cursorcolumn
 
@@ -660,10 +668,14 @@ endfunc
 "结束定义FormartSrc
 
 
-" UltiSnips
+"============== UltiSnips ======================
 let g:UltiSnipsSnippetDirectories=['UltiSnips', '../../mycoolsnippets']
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 "let g:UltiSnipsSnippetDirectories=['E:\Program Files\Vim\vimfiles\bundle\mycoolsnippets']
 "let g:UltiSnipsDoHash=0
+
 
 " Rope-vim
 map <leader>j :RopeGotoDefinition<CR>
@@ -682,7 +694,8 @@ let g:syntastic_auto_loc_list=1
 "let g:lint_ignore='C0110'
 
 " 设置撤销文件 un~ 的保存位置
-set undodir=d:\\Temp/vims/
+set undodir=d:\\Temp\\vims
+set undofile
 
 
 " solarized
@@ -729,8 +742,19 @@ set cc=80  " 在80行位置显示一条竖线
 " Enable snipMate compatibility feature.
 let g:neosnippet#enable_snipmate_compatibility = 1
 " Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='$VIM/vimfiles/bundle/vim-snippets/snippets'
-let g:neosnippet#snippets_directory='$VIM/vimfiles/mycoolsnippets'
+let g:neosnippet#snippets_directory='$VIM/vimfiles/bundle/vim-snippets/snippets, $VIM/vimfiles/mycoolsnippets'
+"let g:neosnippet#snippets_directory='$VIM/vimfiles/mycoolsnippets'
+" SuperTab like snippets behavior.
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: "\<TAB>"
+" For snippet_complete marker.
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif
 
 
 " =========== vimfiler ==========="
