@@ -3,3 +3,4 @@ _vim_mru_files
 /others-plugin
 add_git_submodule.py
 bundle/
+*.swp
