@@ -60,7 +60,7 @@ NeoBundle 'sukima/xmledit'
 NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'lepture/vim-css'
-NeoBundle 'scrooloose/nerdcommenter'
+"NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'nvie/vim-flake8'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'kien/ctrlp.vim'
@@ -75,6 +75,8 @@ NeoBundle 'daylerees/colour-schemes', {'rtp': 'vim-themes'}
 NeoBundle 'bling/vim-airline'
 NeoBundle 'chrisbra/color_highlight'
 NeoBundle 'othree/html5.vim'
+NeoBundle 'tomtom/tcomment_vim'
+NeoBundle 'junegunn/vim-easy-align'
 "NeoBundle 'gcmt/breeze.vim'
 "NeoBundle 'rkumar/html.vim'
 "NeoBundle 'mattn/emmet-vim'
@@ -765,3 +767,14 @@ endif
 
 " =========== UndoTree ==========="
 nmap <leader>ut :UndotreeToggle<cr>
+
+
+" =========== TComment ==========="
+nmap <c-h> :TComment<cr>
+imap <c-h> :TComment<cr>
+vmap <c-h> :TComment<cr>
+
+
+" =========== Markdown ==========="
+" Markdown
+autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
