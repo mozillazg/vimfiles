@@ -77,6 +77,9 @@ NeoBundle 'chrisbra/color_highlight'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'junegunn/vim-easy-align'
+NeoBundle 'gcmt/breeze.vim'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'karuna/HTML-AutoCloseTag'
 "NeoBundle 'gcmt/breeze.vim'
 "NeoBundle 'rkumar/html.vim'
 "NeoBundle 'mattn/emmet-vim'
@@ -209,7 +212,7 @@ if has("autocmd")
     filetype plugin indent on "根据文件进行缩进
     augroup vimrcEx
         au!
-        autocmd FileType text setlocal textwidth=78
+        " autocmd FileType text setlocal textwidth=78
         autocmd BufReadPost *
                     \ if line("'\"") > 1 && line("'\"") <= line("$") |
                     \ exe "normal! g`\"" |
@@ -255,8 +258,10 @@ set t_Co=256 " Explicitly tell vim that the terminal has 256 colors "
 set report=0 " always report number of lines changed "
 "配色方案
 "colorscheme vividchalk " desert molokai freya
+colorscheme default
 " colorscheme GitHub
-colorscheme github
+" colorscheme github
+" colorscheme Glowfish
 "colorscheme darkZ"  molokai  freya
 set showmatch " show matching bracket (briefly jump)
 set showcmd " show typed command in status bar
@@ -464,13 +469,13 @@ set softtabstop=4 " backspace &
 set shiftwidth=4 " indent width
 "set textwidth=79
 set expandtab " expand tab to space
-autocmd FileType php setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
+" autocmd FileType php setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120 omnifunc=phpcomplete#CompletePHP
 autocmd FileType ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=79
-autocmd FileType php setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=79
-autocmd FileType coffee,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=79
-autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=79
-autocmd FileType html,htmldjango,xhtml,haml setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=0
-autocmd FileType sass,scss,css setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=79
+autocmd FileType php setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=79 omnifunc=phpcomplete#CompletePHP
+autocmd FileType coffee,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=79 omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=79 omnifunc=pythoncomplete#Complete
+autocmd FileType html,htmldjango,xhtml,haml setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=0 omnifunc=htmlcomplete#CompleteTags
+autocmd FileType sass,scss,css setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=79  omnifunc=csscomplete#CompleteCSS
 
 
 
@@ -687,12 +692,12 @@ map <leader><S-D> :SyntasticToggleMode<CR>
 "exec SyntasticToggleMode
 "map <F7> :SyntasticCheck<CR>
 "let g:syntastic_python_checkers=['python', 'pep8', 'py3kwarn', 'flake8', 'pylama']
-"let g:syntastic_python_checkers=['pylama']
-let g:syntastic_python_checkers=['flake8']
+let g:syntastic_python_checkers=['pylama']
+" let g:syntastic_python_checkers=['flake8']
 let g:syntastic_python_flake8_ignore='E501'
 let g:syntastic_auto_loc_list=1
-"let g:syntastic_python_pylama_args='-l pep8,pep257,mccabe,pyflakes' ",pylint'
-"let g:syntastic_python_pylama_ignore='C0110'
+let g:syntastic_python_pylama_args='-l pep8,mccabe,pyflakes' ",pylint,pep257'
+" let g:syntastic_python_pylama_ignore='C0110'
 "let g:lint_ignore='C0110'
 
 " 设置撤销文件 un~ 的保存位置
@@ -708,7 +713,7 @@ else
 endif
 "colorscheme solarized
 
-colorscheme Earthsong
+" colorscheme Earthsong
 
 
 " 在每行前显示相对于光标所在的行的行号
@@ -778,3 +783,13 @@ vmap <c-h> :TComment<cr>
 " =========== Markdown ==========="
 " Markdown
 autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+
+
+" =========== easy-align ========"
+vnoremap <silent> <Enter> :EasyAlign<cr>
+
+
+" =========== 解决粘贴到终端 Vim 缩进错乱
+nnoremap <F2> :set invpaste paste?<CR>
+imap <F2> <C-O>:set invpaste paste?<CR>
+set pastetoggle=<F2>
