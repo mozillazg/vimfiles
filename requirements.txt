@@ -3,3 +3,4 @@ flake8-immediate
 flake8-docstrings
 pep8-naming
 autopep8
+pylama
