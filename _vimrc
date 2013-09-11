@@ -1,25 +1,14 @@
 
 
 " ================== neobundle begin ============================
-"vim插件pathogen: 管理插件的插件
-
-"加载 pathogen
-"runtime bundle/vim-pathogen/autoload/pathogen.vim
 
 set nocompatible
 "autocmd!
 filetype off
-"call pathogen#runtime_append_all_bundles()
-"call pathogen#helptags()
-"call pathogen#infect()
 
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-" 加载 vundle
-"set rtp+=$VIM/vimfiles/bundle/vundle/
-"runtime bundle/vundle/autoload/vundle.vim
-"call vundle#rc()
 "
 " 加载 neobundle
 if has('vim_starting')
@@ -30,11 +19,6 @@ if has('vim_starting')
 
  " Let NeoBundle manage NeoBundle
  NeoBundleFetch 'Shougo/neobundle.vim'
-
-" let Vundle manage Vundle
-" required!
-"Bundle 'gmarik/vundle'
-
 
 " NeoBundles
 
@@ -259,10 +243,6 @@ set report=0 " always report number of lines changed "
 "配色方案
 "colorscheme vividchalk " desert molokai freya
 colorscheme default
-" colorscheme GitHub
-" colorscheme github
-" colorscheme Glowfish
-"colorscheme darkZ"  molokai  freya
 set showmatch " show matching bracket (briefly jump)
 set showcmd " show typed command in status bar
 "set title " show file in titlebar
@@ -407,18 +387,6 @@ set linebreak
 " 高亮光标所在列
 "set cursorcolumn
 
-" pylint.vim
-"autocmd FileType python compiler pylint
-"let g:pylint_onwrite = 0
-
-" snipmate
-"let g:snips_trigger_key='<c-j>'
-
-" xptemplate
-"let g:xptemplate_key = '<Tab>'
-"let g:xptemplate_key_pum_only = '<S-Tab>'
-"let g:xptemplate_nav_next = '<Tab>'
-"let g:xptemplate_nav_prev = '<Tab>'
 
 " 代码折叠
 "set fdm=marker " 按缩进折叠
@@ -616,23 +584,6 @@ endfunction
 " MRU
 let MRU_File='e:/Program Files/Vim/vimfiles/_vim_mru_files'
 let MRU_Max_Entries = 1000
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim7.1在windows下的编码设置。By Huadong.Liu
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"set encoding=utf-8
-"set fileencodings=utf-8,chinese,latin-1
-"if has("win32")
-"set fileencoding=chinese
-"else
-"set fileencoding=utf-8
-"endif
-" 解决菜单乱码
-"source $VIMRUNTIME/delmenu.vim
-"source $VIMRUNTIME/menu.vim
-" 解决consle输出乱码
-"language messages zh_CN.utf-8
 
 
 " limitMate
