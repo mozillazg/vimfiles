@@ -364,9 +364,6 @@ set ignorecase
 "即时搜索，在你输入字符串的过程中就高亮显示匹配点
 "set incsearch
 
-"Pydiction
-"let g:pydiction_location = '$VIM/vimfiles/complete-dict'
-
 set viminfo='1000,n$vim/viminfo
 
 " 直接使用剪贴板
@@ -389,7 +386,7 @@ set linebreak
 
 
 " 代码折叠
-"set fdm=marker " 按缩进折叠
+set fdm=marker " 按缩进折叠
 
 " pep8
 "let g:pep8_map='<C-F5>'
@@ -444,11 +441,6 @@ autocmd FileType coffee,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=79 omnifunc=pythoncomplete#Complete
 autocmd FileType html,htmldjango,xhtml,haml setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=0 omnifunc=htmlcomplete#CompleteTags
 autocmd FileType sass,scss,css setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=79  omnifunc=csscomplete#CompleteCSS
-
-
-
-
-
 
 
 
@@ -662,9 +654,6 @@ if has('gui_running')
 else
     set background=dark
 endif
-"colorscheme solarized
-
-" colorscheme Earthsong
 
 
 " 在每行前显示相对于光标所在的行的行号
