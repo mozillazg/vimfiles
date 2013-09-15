@@ -66,7 +66,7 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'karuna/HTML-AutoCloseTag'
 "NeoBundle 'gcmt/breeze.vim'
 "NeoBundle 'rkumar/html.vim'
-"NeoBundle 'mattn/emmet-vim'
+NeoBundle 'mattn/emmet-vim'
 "NeoBundle 'ervandew/sgmlendtag'
 "NeoBundle 'tpope/vim-sensible'
 "NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -729,7 +729,12 @@ autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 vnoremap <silent> <Enter> :EasyAlign<cr>
 
 
-" =========== 解决粘贴到终端 Vim 缩进错乱
+" =========== 解决粘贴到终端 Vim 缩进错乱 ======= "
 nnoremap <F2> :set invpaste paste?<CR>
 imap <F2> <C-O>:set invpaste paste?<CR>
 set pastetoggle=<F2>
+
+
+" =========== emmet-vim ========================= "
+" let g:user_emmet_leader_key='<tab>'
+" let g:user_emmet_expandabbr_key='<tab>'
