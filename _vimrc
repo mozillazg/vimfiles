@@ -1,5 +1,3 @@
-
-
 " ================== neobundle begin ============================
 
 set nocompatible
@@ -58,7 +56,6 @@ NeoBundle 'tell-k/vim-autopep8'
 NeoBundle 'daylerees/colour-schemes', {'rtp': 'vim-themes'}
 NeoBundle 'bling/vim-airline'
 NeoBundle 'chrisbra/color_highlight'
-NeoBundle 'othree/html5.vim'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'gcmt/breeze.vim'
@@ -110,8 +107,6 @@ filetype plugin on
 
 " Installation check.
 NeoBundleCheck
-
-
 
 
 
@@ -171,14 +166,11 @@ endif
 "让vim不要自动设置字节序标记
 set nobomb
 "字体设置"
-"set guifont=MSYH:h12:cUTF-8
-"set guifont=Monaco:h11
 "set guifont=YaHei\ Consolas\ Hybrid:h10:cANSI "h12表示的是字号大小
 " 英文字体
 set guifont=Source\ Code\ Pro:h11 "h12表示的是字号大小
 " 中文字体
 set guifontwide=WenQuanYi\ Micro\ Hei\ Mono:h11
-"set guifontwide=Consolas:h12
 
 let Tlist_File_Fold_Auto_Close=1
 let Tlist_Use_Left_Window=1
