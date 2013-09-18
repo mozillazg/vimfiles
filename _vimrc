@@ -380,14 +380,7 @@ set linebreak
 " 代码折叠
 set fdm=marker " 按缩进折叠
 
-" pep8
-"let g:pep8_map='<C-F5>'
-
 " flake8
-" let g:flake8_ignore="W401, W806"
-"let g:flake8_max_line_length=79
-"autocmd BufWritePost *.py call Flake8()
-"let g:flake8_ignore="E128"
 let g:flake8_ignore="E501"
 
 " jedi-vim
