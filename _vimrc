@@ -117,6 +117,12 @@ source $VIMRUNTIME/mswin.vim
 behave mswin
 "behave xterm
 
+
+
+"""""""""""""""""""""""""""""""""""""""""""
+" 以下为自定义配置 by mozillazg
+""""""""""""""""""""""""""""""""""""""""""" 
+
 "判定当前操作系统类型
 if(has("win32") || has("win95") || has("win64") || has("win16")) 
     let g:iswindows=1
