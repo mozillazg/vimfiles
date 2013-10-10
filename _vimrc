@@ -18,6 +18,8 @@ if has('vim_starting')
  " Let NeoBundle manage NeoBundle
  NeoBundleFetch 'Shougo/neobundle.vim'
 
+let g:neobundle#types#git#default_protocol = 'git'
+
 " NeoBundles
 
 " original repos on github
@@ -37,7 +39,7 @@ NeoBundle 'mjbrownie/vim-htmldjango_omnicomplete'
 NeoBundle 'scrooloose/syntastic'
 "NeoBundle 'hallison/vim-markdown'
 NeoBundle 'sukima/xmledit'
-"NeoBundle 'majutsushi/tagbar'
+NeoBundle 'majutsushi/tagbar'
 "NeoBundle 'ervandew/supertab'
 NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'othree/html5.vim'
@@ -60,7 +62,7 @@ NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'gcmt/breeze.vim'
 NeoBundle 'tpope/vim-surround'
-NeoBundle 'karuna/HTML-AutoCloseTag'
+" NeoBundle 'karuna/HTML-AutoCloseTag'
 "NeoBundle 'gcmt/breeze.vim'
 "NeoBundle 'rkumar/html.vim'
 NeoBundle 'mattn/emmet-vim'
@@ -376,7 +378,7 @@ set linebreak
 set fdm=marker " 按缩进折叠
 
 " flake8
-let g:flake8_ignore="E501"
+" let g:flake8_ignore="E501,E121"
 
 " jedi-vim
 let g:jedi#use_tabs_not_buffers = 0
@@ -617,7 +619,7 @@ map <leader><S-D> :SyntasticToggleMode<CR>
 "let g:syntastic_python_checkers=['python', 'pep8', 'py3kwarn', 'flake8', 'pylama']
 let g:syntastic_python_checkers=['pylama']
 " let g:syntastic_python_checkers=['flake8']
-let g:syntastic_python_flake8_ignore='E501'
+let g:syntastic_python_flake8_ignore='E501'  " ,E121'
 let g:syntastic_auto_loc_list=1
 let g:syntastic_python_pylama_args='-l pep8,mccabe,pyflakes' ",pylint,pep257'
 " let g:syntastic_python_pylama_ignore='C0110'
@@ -718,3 +720,24 @@ set pastetoggle=<F2>
 " =========== emmet-vim ========================= "
 " let g:user_emmet_leader_key='<tab>'
 " let g:user_emmet_expandabbr_key='<tab>'
+
+
+" 开启通过 vim: set ft=vim 的形式设置文件类型
+set modeline
+set modelines=2  " 检查文件最后两行
+
+" Append modeline after last line in buffer.
+" Use substitute() instead of printf() to handle '%%s' modeline in LaTeX
+" files.
+" 按下 <leader>ml 自动插入 modeline
+function! AppendModeline()
+  let l:modeline = printf(" vim: set ft=%s ts=%d sw=%d tw=%d %set :",
+       \ &filetype, &tabstop, &shiftwidth, &textwidth, &expandtab ? '' : 'no')
+  " let l:modeline = printf(" vim: set ft=%s :", &filetype)
+  let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
+  call append(line("$"), "")
+  call append(line("$"), l:modeline)
+endfunction
+nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
+
+" vim: set ft=vim:
