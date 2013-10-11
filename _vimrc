@@ -318,18 +318,18 @@ map <c-h> <plug>NERDCommenterToggle
 set foldmethod=indent
 "set foldmethod=syntax
 set foldlevel=99
-set foldnestmax=2
+" set foldnestmax=2
 "set foldlevelstart=1
 
-let javaScript_fold=1         " JavaScript
-let perl_fold=1               " Perl
-let php_folding=1             " PHP
-let r_syntax_folding=1        " R
-let ruby_fold=1               " Ruby
-let sh_fold_enabled=1         " sh
-let vimsyn_folding='af'       " Vim script
-let xml_syntax_folding=1      " XML
-let python_fold=1
+" let javaScript_fold=1         " JavaScript
+" let perl_fold=1               " Perl
+" let php_folding=1             " PHP
+" let r_syntax_folding=1        " R
+" let ruby_fold=1               " Ruby
+" let sh_fold_enabled=1         " sh
+" let vimsyn_folding='af'       " Vim script
+" let xml_syntax_folding=1      " XML
+" let python_fold=1
 
 "启用 neocomplcache 插件
 "source $VIM/vimfiles/neocomplcache.conf
@@ -375,7 +375,7 @@ set linebreak
 
 
 " 代码折叠
-set fdm=marker " 按缩进折叠
+set fdm=indent " 按缩进折叠
 
 " flake8
 " let g:flake8_ignore="E501,E121"
@@ -569,9 +569,9 @@ let delimitMate_autoclose = 1
 
 " tagbar
 "let g:tagbar_ctags_bin = 'E:\program files\Ctags\ctags.exe'
-"let g:tagbar_left = 1
+let g:tagbar_left = 1
 "nnoremap <silent> <F9> :TagbarToggle<CR>
-"nnoremap <leader>tg :TagbarToggle<CR>
+nnoremap <leader>tg :TagbarToggle<CR>
 "autocmd FileType xyz nested :TagbarOpen
 
 
