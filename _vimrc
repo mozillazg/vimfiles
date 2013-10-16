@@ -69,6 +69,7 @@ NeoBundle 'mattn/emmet-vim'
 "NeoBundle 'ervandew/sgmlendtag'
 "NeoBundle 'tpope/vim-sensible'
 "NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+NeoBundle 'wesleyche/SrcExpl'
 
 " vim-scripts repos
 NeoBundle 'L9'
