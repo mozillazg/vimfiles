@@ -379,7 +379,7 @@ set linebreak
 set fdm=indent " 按缩进折叠
 
 " flake8
-" let g:flake8_ignore="E501,E121"
+let g:flake8_ignore="E501,E121"
 
 " jedi-vim
 let g:jedi#use_tabs_not_buffers = 0
@@ -620,10 +620,10 @@ map <leader><S-D> :SyntasticToggleMode<CR>
 "let g:syntastic_python_checkers=['python', 'pep8', 'py3kwarn', 'flake8', 'pylama']
 let g:syntastic_python_checkers=['pylama']
 " let g:syntastic_python_checkers=['flake8']
-let g:syntastic_python_flake8_ignore='E501'  " ,E121'
+let g:syntastic_python_flake8_ignore='E501,E121'
 let g:syntastic_auto_loc_list=1
 let g:syntastic_python_pylama_args='-l pep8,mccabe,pyflakes' ",pylint,pep257'
-" let g:syntastic_python_pylama_ignore='C0110'
+let g:syntastic_python_pylama_ignore='E501'
 "let g:lint_ignore='C0110'
 
 " 设置撤销文件 un~ 的保存位置
