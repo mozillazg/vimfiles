@@ -71,6 +71,8 @@ NeoBundle 'mattn/emmet-vim'
 "NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 NeoBundle 'wesleyche/SrcExpl'
 NeoBundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
+" NeoBundle 'rking/ag.vim'
+NeoBundle 'dyng/ctrlsf.vim'
 
 " vim-scripts repos
 NeoBundle 'L9'
@@ -626,6 +628,9 @@ let g:syntastic_auto_loc_list=1
 let g:syntastic_python_pylama_args='-l pep8,mccabe,pyflakes' ",pylint,pep257'
 let g:syntastic_python_pylama_ignore='E501'
 "let g:lint_ignore='C0110'
+
+" CSS
+let g:syntastic_css_checkers=['csslint']
 
 " 设置撤销文件 un~ 的保存位置
 set undodir=d:\\Temp\\vims
