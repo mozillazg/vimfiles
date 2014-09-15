@@ -2,6 +2,7 @@ snippet #!/
 options head
     #!/usr/bin/env python
     # -*- coding: utf-8 -*-
+    from __future__ import absolute_import, print_function, unicode_literals
 
     ${1}
 
@@ -14,4 +15,10 @@ snippet xtbm
         sys.setdefaultencoding('utf-8')
 
     ${1}
+
+snippet pdb
+    import pdb; pdb.set_trace()
+
+snippet logger
+    logger = logging.getLogger(__name__)
 

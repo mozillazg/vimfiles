@@ -7,13 +7,14 @@ filetype off
 set nocompatible               " be iMproved
 filetype off                   " required!
 
+
 "
 " 加载 neobundle
 if has('vim_starting')
-   set runtimepath+=$VIM/vimfiles/bundle/neobundle.vim/
+   set runtimepath+=~/vimfiles/bundle/neobundle.vim/
  endif
 
- call neobundle#rc(expand('$VIM/vimfiles/bundle/'))
+ call neobundle#rc(expand('~/vimfiles/bundle/'))
 
  " Let NeoBundle manage NeoBundle
  NeoBundleFetch 'Shougo/neobundle.vim'
@@ -24,13 +25,15 @@ let g:neobundle#types#git#default_protocol = 'git'
 
 " original repos on github
 NeoBundle 'Shougo/vimproc'
-NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neocomplcache.vim'
+NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/context_filetype.vim'
 "NeoBundle 'Shougo/vimshell.vim'
 "NeoBundle 'Shougo/unite.vim'
 "NeoBundle 'Shougo/vimfiler.vim'
-NeoBundle 'ricardovaleriano/vim-github-theme'
+" NeoBundle 'ricardovaleriano/vim-github-theme'
 "NeoBundle 'godlygeek/tabular'
 "NeoBundle 'SirVer/ultisnips'
 NeoBundle 'honza/vim-snippets'
@@ -40,14 +43,14 @@ NeoBundle 'scrooloose/syntastic'
 "NeoBundle 'hallison/vim-markdown'
 NeoBundle 'sukima/xmledit'
 NeoBundle 'majutsushi/tagbar'
-"NeoBundle 'ervandew/supertab'
+" NeoBundle 'ervandew/supertab'
 NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'othree/html5.vim'
-NeoBundle 'lepture/vim-css'
 "NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'nvie/vim-flake8'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'szw/vim-ctrlspace'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'jnwhiteh/vim-golang'
@@ -55,8 +58,9 @@ NeoBundle 'mbbill/undotree'
 "NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'tell-k/vim-autopep8'
-NeoBundle 'daylerees/colour-schemes', {'rtp': 'vim-themes'}
+" NeoBundle 'daylerees/colour-schemes', {'rtp': 'vim-themes'}
 NeoBundle 'bling/vim-airline'
+" NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'chrisbra/color_highlight'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'junegunn/vim-easy-align'
@@ -64,15 +68,37 @@ NeoBundle 'gcmt/breeze.vim'
 NeoBundle 'tpope/vim-surround'
 " NeoBundle 'karuna/HTML-AutoCloseTag'
 "NeoBundle 'gcmt/breeze.vim'
-"NeoBundle 'rkumar/html.vim'
+" NeoBundle 'rkumar/html.vim'
 NeoBundle 'mattn/emmet-vim'
 "NeoBundle 'ervandew/sgmlendtag'
 "NeoBundle 'tpope/vim-sensible'
 "NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 NeoBundle 'wesleyche/SrcExpl'
-NeoBundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
-" NeoBundle 'rking/ag.vim'
+" NeoBundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 NeoBundle 'dyng/ctrlsf.vim'
+NeoBundle 'jewes/Conque-Shell'
+NeoBundle 'tacahiroy/ctrlp-funky'
+NeoBundle 'hail2u/vim-css3-syntax'
+" NeoBundle 'lepture/vim-jinja'
+NeoBundle 'gregsexton/MatchTag'
+" NeoBundle 'rking/ag.vim'
+NeoBundle 'editorconfig/editorconfig-vim'
+" NeoBundle 'Valloric/YouCompleteMe'
+NeoBundle 'Valloric/MatchTagAlways'
+NeoBundle 'yegappan/mru'
+" NeoBundle 'jiangmiao/auto-pairs'
+
+" NeoBundle 'antlypls/vim-colors-codeschool'
+NeoBundle 'endel/vim-github-colorscheme'
+NeoBundle 'junegunn/seoul256.vim'
+
+" 让 * # 支持搜索所选文字
+NeoBundle 'thinca/vim-visualstar'
+" 批量选择文字并进行操作， <C-n>
+" NeoBundle 'terryma/vaim-multiple-cursors'
+NeoBundle 'chrisgillis/vim-bootstrap3-snippets'
+NeoBundle 'xolox/vim-misc'
+NeoBundle 'xolox/vim-session'
 
 " vim-scripts repos
 NeoBundle 'L9'
@@ -81,12 +107,12 @@ NeoBundle 'FuzzyFinder'
 "NeoBundle 'pythoncomplete'
 "NeoBundle 'AutoComplPop'
 NeoBundle 'django.vim'
-NeoBundle 'mru.vim'
 NeoBundle 'matchit.zip'
 "NeoBundle 'closetag.vim'
 NeoBundle 'xml.vim'
 "NeoBundle 'AutoClose'
 "'bufexplorer.zip'
+NeoBundle 'PreserveNoEOL'
 
  "gist repos
 "NeoBundle 'gist:Shougo/656148', {
@@ -118,9 +144,9 @@ NeoBundleCheck
 
 " 不与 vi 完全兼容
 set nocompatible
-source $VIMRUNTIME/vimrc_example.vim
-source $VIMRUNTIME/mswin.vim
-behave mswin
+" source ~RUNTIME/vimrc_example.vim
+" source ~RUNTIME/mswin.vim
+" behave mswin
 "behave xterm
 
 
@@ -147,11 +173,11 @@ set termencoding=utf-8,gbk,cp936,gb18030,big5,euc-jp,euc-kr,latin1,ucs-bom
 set fileencodings=utf-8,gbk,cp936,gb18030,big5,euc-jp,euc-kr,latin1,ucs-bom
 "防止菜单及 consle 输出乱码
 if(g:iswindows==1)
-    source $VIMRUNTIME/delmenu.vim
-    source $VIMRUNTIME/menu.vim
-    source $VIMRUNTIME/mswin.vim
+    source ~RUNTIME/delmenu.vim
+    source ~RUNTIME/menu.vim
+    source ~RUNTIME/mswin.vim
     behave mswin
-    language messages zh_CN.utf-8
+    " language messages zh_CN.utf-8
 endif
 
 "关闭 fencview 插件的编码自动检测
@@ -169,9 +195,10 @@ set nobomb
 "字体设置"
 "set guifont=YaHei\ Consolas\ Hybrid:h10:cANSI "h12表示的是字号大小
 " 英文字体
-set guifont=Source\ Code\ Pro:h11 "h12表示的是字号大小
+" set guifont=Source\ Code\ Pro:h11 "h12表示的是字号大小
+"set guifont=Ubuntu\ Mono:h11 "h12表示的是字号大小
 " 中文字体
-set guifontwide=WenQuanYi\ Micro\ Hei\ Mono:h11
+"set guifontwide=WenQuanYi\ Micro\ Hei\ Mono:h11
 
 let Tlist_File_Fold_Auto_Close=1
 let Tlist_Use_Left_Window=1
@@ -246,7 +273,7 @@ set matchpairs+=<:> " specially for html
 "总是显示标签栏
 set showtabline=2
 "中文帮助文档
-set helplang=cn
+" set helplang=cn
 "最大标签页数
 set tabpagemax=12
 " 移除菜单栏、工具栏和滚动条
@@ -269,11 +296,11 @@ endif
 
 " 设置窗口的起始位置和大小
 "winpos 275 15
-set lines=30
-set columns=90
+" set lines=30
+" set columns=90
 
 "设置备份文件目录
-set backupdir=d:\\Temp\\vims
+set backupdir=/public/.vims_backup
 
 "让 vim 保存一个原始文件，且后缀是
 "set patchmode=.orig
@@ -291,9 +318,9 @@ let g:fuf_enumeratingLimit = 300
 "nmap fhh :help FufHelp<cr>
 
 "编辑配置文件
-nmap <leader>em :e $myvimrc<cr>
+nmap <leader>em :e $MYVIMRC<cr>
 "重新载入配置文件，使配置文件立即生效
-nmap <leader>sm :source $myvimrc<cr>
+nmap <leader>sm :source $MYVIMRC<cr>
 nmap <C-T> :tabe<cr>
 "nmap <C-W> :close!<cr>
 "nmap <C-Tab> gt
@@ -315,7 +342,7 @@ let NERDTreeWinPos='right'
 
 " NERD_commenter 插件
 " 支持切换单行和多行注释
-map <c-h> <plug>NERDCommenterToggle
+" map <leader><c-h> <plug>NERDCommenterToggle
 
 
 "代码折叠
@@ -335,21 +362,6 @@ set foldlevel=99
 " let xml_syntax_folding=1      " XML
 " let python_fold=1
 
-"启用 neocomplcache 插件
-"source $VIM/vimfiles/neocomplcache.conf
-let g:neocomplcache_enable_at_startup=0
-let g:neoComplcache_disableautocomplete=0
-"let g:neocomplcache_enable_underbar_completion = 1
-"let g:neocomplcache_enable_camel_case_completion = 1
-"let g:neocomplcache_enable_smart_case=1
-"let g:neocomplcache_min_syntax_length = 2
-"let g:neocomplcache_auto_completion_start_length=2
-"let g:neocomplcache_min_keyword_length=2
-"let g:neocomplcache_manual_completion_start_length=2
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-set completeopt=preview
-
-
 " 搜索时忽略大小写
 set ignorecase
 " 搜索时区分大小写
@@ -357,7 +369,7 @@ set ignorecase
 "即时搜索，在你输入字符串的过程中就高亮显示匹配点
 "set incsearch
 
-set viminfo='1000,n$vim/viminfo
+set viminfo='1000,n~/.viminfo
 
 " 直接使用剪贴板
 " set clipboard=unnamed
@@ -382,13 +394,14 @@ set linebreak
 set fdm=indent " 按缩进折叠
 
 " flake8
-let g:flake8_ignore="E501,E121"
+" let g:flake8_ignore="E501,E121"
+let g:flake8_ignore="E501"
 
 " jedi-vim
-let g:jedi#use_tabs_not_buffers = 0
+let g:jedi#use_tabs_not_buffers = 1
 let g:jedi#popup_on_dot = 0
-"let g:jedi#autocompletion_command = '<C-Space>'
-"let g:jedi#autocompletion_command = '<Ta>'
+let g:jedi#completions_command = '<C-j>'
+" let g:jedi#completions_command = '<Tab>'
 
 "https://github.com/humiaozuzu/dot-vimrc
 " highlight current line
@@ -424,7 +437,7 @@ set expandtab " expand tab to space
 autocmd FileType ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=79
 autocmd FileType php setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=79 omnifunc=phpcomplete#CompletePHP
 autocmd FileType coffee,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=79 omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=79 omnifunc=pythoncomplete#Complete
+autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=0 omnifunc=pythoncomplete#Complete
 autocmd FileType html,htmldjango,xhtml,haml setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=0 omnifunc=htmlcomplete#CompleteTags
 autocmd FileType sass,scss,css setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=79  omnifunc=csscomplete#CompleteCSS
 
@@ -554,14 +567,15 @@ nmap <leader>eT :call libcallnr("vimtweak.dll","EnableTopMost",0)<cr>
 set previewheight=5
 
 " change quickfix window height
-au FileType qf call AdjustWindowHeight(3, 5)
+au FileType qf call AdjustWindowHeight(5, 8)
 function! AdjustWindowHeight(minheight, maxheight)
   exe max([min([line("$"), a:maxheight]), a:minheight]) . "wincmd _"
 endfunction
 
 " MRU
-let MRU_File='e:/Program Files/Vim/vimfiles/_vim_mru_files'
+let MRU_File='/home/mg/vimfiles/_vim_mru_files'
 let MRU_Max_Entries = 1000
+cmap mru MRU<CR>
 
 
 " limitMate
@@ -604,13 +618,18 @@ endfunc
 "结束定义FormartSrc
 
 
-"============== UltiSnips ======================
-let g:UltiSnipsSnippetDirectories=['UltiSnips', '../../mycoolsnippets']
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-"let g:UltiSnipsSnippetDirectories=['E:\Program Files\Vim\vimfiles\bundle\mycoolsnippets']
-"let g:UltiSnipsDoHash=0
+" ============== SuperTab ============="
+" let g:SuperTabMappingTabLiteral = "<C-n>"
+
+
+
+" "============== UltiSnips ======================
+" let g:UltiSnipsSnippetDirectories=['UltiSnips', '../../mycoolsnippets']
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<tab>"
+" let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+" "let g:UltiSnipsSnippetDirectories=['E:\Program Files\Vim\vimfiles\bundle\mycoolsnippets']
+" "let g:UltiSnipsDoHash=0
 
 
 " Rope-vim
@@ -623,17 +642,22 @@ map <leader><S-D> :SyntasticToggleMode<CR>
 "let g:syntastic_python_checkers=['python', 'pep8', 'py3kwarn', 'flake8', 'pylama']
 let g:syntastic_python_checkers=['pylama']
 " let g:syntastic_python_checkers=['flake8']
-let g:syntastic_python_flake8_ignore='E501,E121'
+" let g:syntastic_python_flake8_ignore='E501,E121'
 let g:syntastic_auto_loc_list=1
-let g:syntastic_python_pylama_args='-l pep8,mccabe,pyflakes' ",pylint,pep257'
-let g:syntastic_python_pylama_ignore='E501'
-"let g:lint_ignore='C0110'
+" let g:syntastic_python_pylama_args='-l pep8,mccabe,pyflakes -i E501,E121,E126'
+let g:syntastic_python_pylama_args='-l pep8,mccabe,pyflakes -i E501'
+" let g:syntastic_python_pylama_ignore='E501,E121'
+" let g:lint_ignore='E501,E121'
+
+" CSS
+" let g:syntastic_css_checkers=['csslint']
+
 
 " CSS
 let g:syntastic_css_checkers=['csslint']
 
 " 设置撤销文件 un~ 的保存位置
-set undodir=d:\\Temp\\vims
+set undodir=/public/.vims_backup/
 set undofile
 
 
@@ -675,12 +699,18 @@ set cc=80  " 在80行位置显示一条竖线
 
 
 " ========== neosnippet ==========="
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
 " Enable snipMate compatibility feature.
 let g:neosnippet#enable_snipmate_compatibility = 1
 " Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='$VIM/vimfiles/bundle/vim-snippets/snippets, $VIM/vimfiles/mycoolsnippets'
-"let g:neosnippet#snippets_directory='$VIM/vimfiles/mycoolsnippets'
-" SuperTab like snippets behavior.
+let g:neosnippet#snippets_directory='~/vimfiles/bundle/vim-snippets/snippets, ~/vimfiles/mycoolsnippets'
+"let g:neosnippet#snippets_directory='~/vimfiles/mycoolsnippets'
+
+" " SuperTab like snippets behavior.
 imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)"
 \: pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -704,9 +734,9 @@ nmap <leader>ut :UndotreeToggle<cr>
 
 
 " =========== TComment ==========="
-nmap <c-h> :TComment<cr>
-imap <c-h> :TComment<cr>
-vmap <c-h> :TComment<cr>
+nmap <leader><c-h> :TComment<cr>
+imap <leader><c-h> :TComment<cr>
+vmap <leader><c-h> :TComment<cr>
 
 
 " =========== Markdown ==========="
@@ -748,3 +778,136 @@ endfunction
 nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
 
 " vim: set ft=vim:
+"
+set backupdir=/public/.vims_backup
+
+
+" colorscheme Tomorrow-Night-Bright
+" colorscheme Tomorrow-Night
+" colorscheme solarized
+" colorscheme github
+colorscheme default
+
+
+
+" =============  CtrlPFunky ==================
+nnoremap <Leader>fu :CtrlPFunky<Cr>
+" Initialise list by a word under cursor
+nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
+
+" fix 'Press ENTER or type command to continue' prompt
+" http://stackoverflow.com/a/12423858
+" set cmdheight=2
+" set shortmess=aoOtI
+
+
+" ==============  neocomplete ================
+set completeopt=preview
+
+"Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
+" Define dictionary.
+let g:neocomplete#sources#dictionary#dictionaries = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+        \ }
+
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return neocomplete#close_popup() . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+endfunction
+" <TAB>: completion.
+" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplete#close_popup()
+inoremap <expr><C-e>  neocomplete#cancel_popup()
+" Close popup by <Space>.
+"inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
+
+" For cursor moving in insert mode(Not recommended)
+"inoremap <expr><Left>  neocomplete#close_popup() . "\<Left>"
+"inoremap <expr><Right> neocomplete#close_popup() . "\<Right>"
+"inoremap <expr><Up>    neocomplete#close_popup() . "\<Up>"
+"inoremap <expr><Down>  neocomplete#close_popup() . "\<Down>"
+" Or set this.
+"let g:neocomplete#enable_cursor_hold_i = 1
+" Or set this.
+"let g:neocomplete#enable_insert_char_pre = 1
+
+" AutoComplPop like behavior.
+"let g:neocomplete#enable_auto_select = 1
+
+" Shell like behavior(not recommended).
+"set completeopt+=longest
+"let g:neocomplete#enable_auto_select = 1
+"let g:neocomplete#disable_auto_complete = 1
+" inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+" For perlomni.vim setting.
+" https://github.com/c9s/perlomni.vim
+let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+
+
+"============ ctrlspace =================
+set hidden
+hi CtrlSpaceSelected term=reverse ctermfg=187   guifg=#d7d7af ctermbg=23    guibg=#005f5f cterm=bold gui=bold
+hi CtrlSpaceNormal   term=NONE    ctermfg=244   guifg=#808080 ctermbg=232   guibg=#080808 cterm=NONE gui=NONE
+hi CtrlSpaceSearch   ctermfg=220  guifg=#ffd700 ctermbg=NONE  guibg=NONE    cterm=bold    gui=bold
+hi CtrlSpaceStatus   ctermfg=230  guifg=#ffffd7 ctermbg=234   guibg=#1c1c1c cterm=NONE    gui=NONE
+
+
+"=========== seoul256.vim ==============
+" Unified color scheme (default: dark)
+" colo seoul256
+
+" Light color scheme
+" colo seoul256-light
+
+" Switch
+set background=dark
+set background=light
+
+" colorscheme molokai
+" colorscheme morning
+colorscheme default

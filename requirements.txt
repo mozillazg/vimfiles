@@ -1,7 +1,7 @@
 flake8
-flake8-immediate
-flake8-docstrings
-pep8-naming
+#flake8-immediate
+#flake8-docstrings
+#pep8-naming
 pep8
-autopep8
+#autopep8
 pylama
