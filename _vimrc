@@ -1,3 +1,8 @@
+" language messages en 
+"language messages en_US.utf8
+"set langmenu=en_US.utf8
+language messages C
+
 " ================== neobundle begin ============================
 
 set nocompatible
@@ -24,7 +29,7 @@ let g:neobundle#types#git#default_protocol = 'git'
 " NeoBundles
 
 " original repos on github
-NeoBundle 'Shougo/vimproc'
+" NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/neocomplcache.vim'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neosnippet'
@@ -911,3 +916,6 @@ set background=light
 " colorscheme molokai
 " colorscheme morning
 colorscheme default
+
+" ====== vim-session
+let g:session_autosave = 'no'
