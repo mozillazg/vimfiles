@@ -104,6 +104,8 @@ NeoBundle 'thinca/vim-visualstar'
 NeoBundle 'chrisgillis/vim-bootstrap3-snippets'
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'xolox/vim-session'
+" golang plugin
+NeoBundle 'fatih/vim-go'
 
 " vim-scripts repos
 NeoBundle 'L9'
@@ -656,10 +658,11 @@ let g:syntastic_python_pylama_args='-l pep8,mccabe,pyflakes -i E501'
 
 " CSS
 " let g:syntastic_css_checkers=['csslint']
-
-
-" CSS
 let g:syntastic_css_checkers=['csslint']
+
+" ignore
+let g:syntastic_ignore_files = ['\.go$']
+
 
 " 设置撤销文件 un~ 的保存位置
 set undodir=/public/.vims_backup/
