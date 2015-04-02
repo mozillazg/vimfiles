@@ -30,7 +30,7 @@ let g:neobundle#types#git#default_protocol = 'git'
 
 " original repos on github
 " NeoBundle 'Shougo/vimproc'
-NeoBundle 'Shougo/neocomplcache.vim'
+" NeoBundle 'Shougo/neocomplcache.vim'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
@@ -58,7 +58,7 @@ NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'szw/vim-ctrlspace'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'jnwhiteh/vim-golang'
+" NeoBundle 'jnwhiteh/vim-golang'
 NeoBundle 'mbbill/undotree'
 "NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'davidhalter/jedi-vim'
@@ -96,6 +96,9 @@ NeoBundle 'yegappan/mru'
 " NeoBundle 'antlypls/vim-colors-codeschool'
 NeoBundle 'endel/vim-github-colorscheme'
 NeoBundle 'junegunn/seoul256.vim'
+" NeoBundle 'Rykka/riv.vim'
+" NeoBundle 'Rykka/clickable.vim'
+" NeoBundle 'Rykka/clickable-things'
 
 " 让 * # 支持搜索所选文字
 NeoBundle 'thinca/vim-visualstar'
@@ -647,13 +650,14 @@ map <leader><S-D> :SyntasticToggleMode<CR>
 "exec SyntasticToggleMode
 "map <F7> :SyntasticCheck<CR>
 "let g:syntastic_python_checkers=['python', 'pep8', 'py3kwarn', 'flake8', 'pylama']
-let g:syntastic_python_checkers=['pylama']
-" let g:syntastic_python_checkers=['flake8']
-" let g:syntastic_python_flake8_ignore='E501,E121'
+" let g:syntastic_python_checkers=['pylama']
+let g:syntastic_python_checkers=['flake8']
+let g:syntastic_python_flake8_ignore='E501,E121'
 let g:syntastic_auto_loc_list=1
 " let g:syntastic_python_pylama_args='-l pep8,mccabe,pyflakes -i E501,E121,E126'
 let g:syntastic_python_pylama_args='-l pep8,mccabe,pyflakes -i E501'
-" let g:syntastic_python_pylama_ignore='E501,E121'
+let g:syntastic_python_pylama_ignore='E501,E121'
+let g:syntastic_python_flake8_args='--ignore E501'  " ,E121'
 " let g:lint_ignore='E501,E121'
 
 " CSS
@@ -790,14 +794,6 @@ nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
 set backupdir=/public/.vims_backup
 
 
-" colorscheme Tomorrow-Night-Bright
-" colorscheme Tomorrow-Night
-" colorscheme solarized
-" colorscheme github
-colorscheme default
-
-
-
 " =============  CtrlPFunky ==================
 nnoremap <Leader>fu :CtrlPFunky<Cr>
 " Initialise list by a word under cursor
@@ -916,9 +912,50 @@ hi CtrlSpaceStatus   ctermfg=230  guifg=#ffffd7 ctermbg=234   guibg=#1c1c1c cter
 set background=dark
 set background=light
 
+" colorscheme Tomorrow-Night-Bright
+" colorscheme Tomorrow-Night
+" colorscheme github
 " colorscheme molokai
 " colorscheme morning
-colorscheme default
+" colorscheme default
+set t_Co=8
+let g:solarized_termcolors=256
+" colorscheme solarized
 
 " ====== vim-session
 let g:session_autosave = 'no'
+let g:session_autoload = 'no'
+
+
+" Setting for rst Linter
+let s:rst_accepted_dir_type =
+            \ '\(' .
+            \ 'seealso\|todo\|toctree\|' .
+            \ 'literalinclude\|' .
+            \ 'auto.*' .
+            \ '\)'
+let s:rst_accepted_text_role = '\(ref\|command\|file\|py:[a-z]*\|meth\|class\|func\)'
+let s:rst_def_substitution = '\(version\|today\)'
+let g:syntastic_rst_rst2pseudoxml_quiet_messages = {
+            \ "regex":
+            \ '\(' .
+            \ 'Unknown directive type "' . s:rst_accepted_dir_type . '"\|' .
+            \ 'Unknown interpreted text role "' . s:rst_accepted_text_role . '"\|' .
+            \ 'Undefined substitution referenced: "' . s:rst_def_substitution . '"' .
+            \ '\)',
+            \ }
+
+" Recovery & Backup
+set undofile     " use undo file (>=7.3)
+set backup
+set writebackup
+set backupdir=~/.vim/swap,.
+set directory=~/.vim/swap,.
+set undodir=~/.vimundo/
+
+
+" vim-go
+let g:go_fmt_command = "goimports"
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
