@@ -99,6 +99,8 @@ NeoBundle 'junegunn/seoul256.vim'
 " NeoBundle 'Rykka/riv.vim'
 " NeoBundle 'Rykka/clickable.vim'
 " NeoBundle 'Rykka/clickable-things'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'mxw/vim-jsx'
 
 " 让 * # 支持搜索所选文字
 NeoBundle 'thinca/vim-visualstar'
@@ -446,7 +448,7 @@ set expandtab " expand tab to space
 " autocmd FileType php setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120 omnifunc=phpcomplete#CompletePHP
 autocmd FileType ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=79
 autocmd FileType php setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=79 omnifunc=phpcomplete#CompletePHP
-autocmd FileType coffee,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=79 omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType coffee,javascript,javascript.jsx setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=79 omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=0 omnifunc=pythoncomplete#Complete
 autocmd FileType html,htmldjango,xhtml,haml setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=0 omnifunc=htmlcomplete#CompleteTags
 autocmd FileType sass,scss,css setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=79  omnifunc=csscomplete#CompleteCSS
@@ -876,7 +878,7 @@ inoremap <expr><C-e>  neocomplete#cancel_popup()
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType javascript,javascript.jsx setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
