@@ -15,16 +15,32 @@ filetype off                   " required!
 
 "
 " 加载 neobundle
+"NeoBundle Scripts-----------------------------
 if has('vim_starting')
-   set runtimepath+=~/vimfiles/bundle/neobundle.vim/
- endif
+  if &compatible
+    set nocompatible               " Be iMproved
+  endif
 
- call neobundle#rc(expand('~/vimfiles/bundle/'))
+  " Required:
+  set runtimepath+=/Users/mg/.vim/bundle/neobundle.vim/
+endif
 
- " Let NeoBundle manage NeoBundle
- NeoBundleFetch 'Shougo/neobundle.vim'
+" Required:
+call neobundle#begin(expand('/Users/mg/.vim/bundle'))
 
-let g:neobundle#types#git#default_protocol = 'git'
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" Add or remove your Bundles here:
+NeoBundle 'Shougo/neosnippet.vim'
+NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'flazz/vim-colorschemes'
+
+" You can specify revision/branch/tag.
+NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
 
 " NeoBundles
 
@@ -150,7 +166,17 @@ filetype plugin on
 " :NeoBundleClean(!)      - confirm(or auto-approve) removal of unused bundles
 
 " Installation check.
+
+" Required:
+call neobundle#end()
+
+" Required:
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
 NeoBundleCheck
+"End NeoBundle Scripts-------------------------
 
 
 
@@ -407,7 +433,7 @@ set fdm=indent " 按缩进折叠
 
 " flake8
 " let g:flake8_ignore="E501,E121"
-let g:flake8_ignore="E501"
+" let g:flake8_ignore="E501"
 
 " jedi-vim
 let g:jedi#use_tabs_not_buffers = 1
@@ -585,7 +611,7 @@ function! AdjustWindowHeight(minheight, maxheight)
 endfunction
 
 " MRU
-let MRU_File='/home/mg/vimfiles/_vim_mru_files'
+let MRU_File='/Users/mg/.vim/_vim_mru_files'
 let MRU_Max_Entries = 1000
 cmap mru MRU<CR>
 
@@ -654,12 +680,12 @@ map <leader><S-D> :SyntasticToggleMode<CR>
 "let g:syntastic_python_checkers=['python', 'pep8', 'py3kwarn', 'flake8', 'pylama']
 " let g:syntastic_python_checkers=['pylama']
 let g:syntastic_python_checkers=['flake8']
-let g:syntastic_python_flake8_ignore='E501,E121'
+" let g:syntastic_python_flake8_ignore='E501,E121'
 let g:syntastic_auto_loc_list=1
 " let g:syntastic_python_pylama_args='-l pep8,mccabe,pyflakes -i E501,E121,E126'
-let g:syntastic_python_pylama_args='-l pep8,mccabe,pyflakes -i E501'
-let g:syntastic_python_pylama_ignore='E501,E121'
-let g:syntastic_python_flake8_args='--ignore E501'  " ,E121'
+" let g:syntastic_python_pylama_args='-l pep8,mccabe,pyflakes -i E501'
+" let g:syntastic_python_pylama_ignore='E501,E121'
+" let g:syntastic_python_flake8_args='--ignore E501'  " ,E121'
 " let g:lint_ignore='E501,E121'
 
 " CSS
@@ -914,12 +940,6 @@ hi CtrlSpaceStatus   ctermfg=230  guifg=#ffffd7 ctermbg=234   guibg=#1c1c1c cter
 set background=dark
 set background=light
 
-" colorscheme Tomorrow-Night-Bright
-" colorscheme Tomorrow-Night
-" colorscheme github
-" colorscheme molokai
-" colorscheme morning
-" colorscheme default
 set t_Co=8
 let g:solarized_termcolors=256
 " colorscheme solarized
