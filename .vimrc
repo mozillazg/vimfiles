@@ -127,6 +127,7 @@ NeoBundle 'xolox/vim-misc'
 NeoBundle 'xolox/vim-session'
 " golang plugin
 NeoBundle 'fatih/vim-go'
+NeoBundle 'rust-lang/rust.vim'
 
 " vim-scripts repos
 NeoBundle 'L9'
