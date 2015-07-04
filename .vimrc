@@ -1,6 +1,3 @@
-" language messages en 
-"language messages en_US.utf8
-"set langmenu=en_US.utf8
 language messages C
 
 " ================== neobundle begin ============================
@@ -45,18 +42,10 @@ NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
 " NeoBundles
 
 " original repos on github
-" NeoBundle 'Shougo/vimproc'
-" NeoBundle 'Shougo/neocomplcache.vim'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/context_filetype.vim'
-"NeoBundle 'Shougo/vimshell.vim'
-"NeoBundle 'Shougo/unite.vim'
-"NeoBundle 'Shougo/vimfiler.vim'
-" NeoBundle 'ricardovaleriano/vim-github-theme'
-"NeoBundle 'godlygeek/tabular'
-"NeoBundle 'SirVer/ultisnips'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'vim-jp/autofmt'
 NeoBundle 'mjbrownie/vim-htmldjango_omnicomplete'
@@ -67,56 +56,39 @@ NeoBundle 'majutsushi/tagbar'
 " NeoBundle 'ervandew/supertab'
 NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'othree/html5.vim'
-"NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'nvie/vim-flake8'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'szw/vim-ctrlspace'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'altercation/vim-colors-solarized'
-" NeoBundle 'jnwhiteh/vim-golang'
 NeoBundle 'mbbill/undotree'
-"NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'tell-k/vim-autopep8'
-" NeoBundle 'daylerees/colour-schemes', {'rtp': 'vim-themes'}
 NeoBundle 'bling/vim-airline'
-" NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'chrisbra/color_highlight'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'gcmt/breeze.vim'
 NeoBundle 'tpope/vim-surround'
-" NeoBundle 'karuna/HTML-AutoCloseTag'
-"NeoBundle 'gcmt/breeze.vim'
-" NeoBundle 'rkumar/html.vim'
 NeoBundle 'mattn/emmet-vim'
-"NeoBundle 'ervandew/sgmlendtag'
-"NeoBundle 'tpope/vim-sensible'
-"NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 NeoBundle 'wesleyche/SrcExpl'
-" NeoBundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 NeoBundle 'dyng/ctrlsf.vim'
 NeoBundle 'jewes/Conque-Shell'
 NeoBundle 'tacahiroy/ctrlp-funky'
 NeoBundle 'hail2u/vim-css3-syntax'
-" NeoBundle 'lepture/vim-jinja'
 NeoBundle 'gregsexton/MatchTag'
 " NeoBundle 'rking/ag.vim'
 NeoBundle 'editorconfig/editorconfig-vim'
 " NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'Valloric/MatchTagAlways'
 NeoBundle 'yegappan/mru'
-" NeoBundle 'jiangmiao/auto-pairs'
 
-" NeoBundle 'antlypls/vim-colors-codeschool'
 NeoBundle 'endel/vim-github-colorscheme'
 NeoBundle 'junegunn/seoul256.vim'
-" NeoBundle 'Rykka/riv.vim'
-" NeoBundle 'Rykka/clickable.vim'
-" NeoBundle 'Rykka/clickable-things'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'mxw/vim-jsx'
+NeoBundle 'mrk21/yaml-vim'
 
 " 让 * # 支持搜索所选文字
 NeoBundle 'thinca/vim-visualstar'
@@ -125,22 +97,16 @@ NeoBundle 'thinca/vim-visualstar'
 NeoBundle 'chrisgillis/vim-bootstrap3-snippets'
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'xolox/vim-session'
-" golang plugin
 NeoBundle 'fatih/vim-go'
 NeoBundle 'rust-lang/rust.vim'
+NeoBundle 'kchmck/vim-coffee-script'
 
 " vim-scripts repos
 NeoBundle 'L9'
 NeoBundle 'FuzzyFinder'
-"NeoBundle 'Jinja'
-"NeoBundle 'pythoncomplete'
-"NeoBundle 'AutoComplPop'
 NeoBundle 'django.vim'
 NeoBundle 'matchit.zip'
-"NeoBundle 'closetag.vim'
 NeoBundle 'xml.vim'
-"NeoBundle 'AutoClose'
-"'bufexplorer.zip'
 NeoBundle 'PreserveNoEOL'
 
  "gist repos
@@ -154,11 +120,6 @@ NeoBundle 'PreserveNoEOL'
 " git repos on your local machine (ie. when working on your own plugin)
 "NeoBundle 'file:///Users/gmarik/path/to/plugin'
 
-
-" ================== vundle end ============================
-filetype plugin indent on
-syntax on
-filetype plugin on
 
 "
 " Brief help
@@ -179,14 +140,14 @@ filetype plugin indent on
 NeoBundleCheck
 "End NeoBundle Scripts-------------------------
 
+filetype plugin indent on
+syntax on
+filetype plugin on
+
 
 
 " 不与 vi 完全兼容
 set nocompatible
-" source ~RUNTIME/vimrc_example.vim
-" source ~RUNTIME/mswin.vim
-" behave mswin
-"behave xterm
 
 
 "判定当前操作系统类型
@@ -208,7 +169,6 @@ set fenc=utf-8
 "vim在与屏幕/键盘交互时用的编码
 set termencoding=utf-8,gbk,cp936,gb18030,big5,euc-jp,euc-kr,latin1,ucs-bom
 "打开文件时用的编码
-"set fileencodings=ucs-bom,utf-8,chinese,latin-1
 set fileencodings=utf-8,gbk,cp936,gb18030,big5,euc-jp,euc-kr,latin1,ucs-bom
 "防止菜单及 consle 输出乱码
 if(g:iswindows==1)
@@ -216,7 +176,6 @@ if(g:iswindows==1)
     source ~RUNTIME/menu.vim
     source ~RUNTIME/mswin.vim
     behave mswin
-    " language messages zh_CN.utf-8
 endif
 
 "关闭 fencview 插件的编码自动检测
@@ -479,6 +438,7 @@ autocmd FileType coffee,javascript,javascript.jsx setlocal tabstop=2 shiftwidth=
 autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=0 omnifunc=pythoncomplete#Complete
 autocmd FileType html,htmldjango,xhtml,haml setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=0 omnifunc=htmlcomplete#CompleteTags
 autocmd FileType sass,scss,css setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=79  omnifunc=csscomplete#CompleteCSS
+autocmd FileType yml,yaml setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=79 textwidth=79
 
 
 
@@ -982,3 +942,6 @@ let g:go_fmt_command = "goimports"
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
+
+" rust
+autocmd BufNewFile,BufRead *.rs set filetype=rust
