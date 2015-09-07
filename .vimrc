@@ -1,17 +1,8 @@
 language messages C
 
 " ================== neobundle begin ============================
-
-set nocompatible
-"autocmd!
-filetype off
-
 set nocompatible               " be iMproved
 filetype off                   " required!
-
-
-"
-" 加载 neobundle
 "NeoBundle Scripts-----------------------------
 if has('vim_starting')
   if &compatible
@@ -19,19 +10,26 @@ if has('vim_starting')
   endif
 
   " Required:
-  set runtimepath+=/Users/mg/.vim/bundle/neobundle.vim/
+  set runtimepath+=$HOME/.vim/bundle/neobundle.vim/
 endif
 
 " Required:
-call neobundle#begin(expand('/Users/mg/.vim/bundle'))
+call neobundle#begin(expand('~/.vim/bundle'))
 
 " Let NeoBundle manage NeoBundle
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
 
+
 " Add or remove your Bundles here:
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'Shougo/context_filetype.vim'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'flazz/vim-colorschemes'
@@ -42,10 +40,6 @@ NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
 " NeoBundles
 
 " original repos on github
-NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'Shougo/context_filetype.vim'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'vim-jp/autofmt'
 NeoBundle 'mjbrownie/vim-htmldjango_omnicomplete'
@@ -82,7 +76,6 @@ NeoBundle 'rking/ag.vim'
 NeoBundle 'editorconfig/editorconfig-vim'
 " NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'Valloric/MatchTagAlways'
-NeoBundle 'yegappan/mru'
 
 NeoBundle 'endel/vim-github-colorscheme'
 NeoBundle 'junegunn/seoul256.vim'
@@ -148,17 +141,8 @@ filetype plugin on
 
 " 不与 vi 完全兼容
 set nocompatible
-
-
-"判定当前操作系统类型
-if(has("win32") || has("win95") || has("win64") || has("win16")) 
-    let g:iswindows=1
-else
-    let g:iswindows=0
-endif
-
 " Default runtime directory
-let s:runtimepath = expand(g:iswindows==1 ? '$vim/vimfiles' : '$HOME/.vim')
+let s:runtimepath = expand('$HOME/.vim')
 
 
 """"'编码设置""""""
@@ -170,18 +154,6 @@ set fenc=utf-8
 set termencoding=utf-8,gbk,cp936,gb18030,big5,euc-jp,euc-kr,latin1,ucs-bom
 "打开文件时用的编码
 set fileencodings=utf-8,gbk,cp936,gb18030,big5,euc-jp,euc-kr,latin1,ucs-bom
-"防止菜单及 consle 输出乱码
-if(g:iswindows==1)
-    source ~RUNTIME/delmenu.vim
-    source ~RUNTIME/menu.vim
-    source ~RUNTIME/mswin.vim
-    behave mswin
-endif
-
-"关闭 fencview 插件的编码自动检测
-let g:fencview_autodetect=0
-" <F2> 开启 fencview 插件
-map <F2> :FencView<cr>
 
 "让vim能够默认以双字节处理那些特殊字符
 if v:lang =~? '^\(zh\)\|\(ja\)\|\(ko\)'
@@ -221,11 +193,10 @@ if has("autocmd")
                     \ endif
     augroup END
 else
-    "智能缩进，相应的有cindent，官方说autoindent可以支持各种文件的缩进，但是效果会比只支持C/C++的cindent效果会差一点，但笔者并没有看出来
+    "智能缩进
     set autoindent " always set autoindenting on 
 endif " has("autocmd")
 
-set tabstop=4 "让一个tab等于4个空格
 " 设置缩进
 set expandtab     " 使用空格代替tab.
 set tabstop=4     " 空格数量是4。
@@ -242,25 +213,11 @@ match WhitespaceEOL /\s\+$/
 set hlsearch "高亮显示结果
 set incsearch "在输入要搜索的文字时，vim会实时匹配
 set backspace=indent,eol,start whichwrap+=<,>,[,] "允许退格键的使用
-if(g:iswindows==1) "允许鼠标的使用
-    "防止linux终端下无法拷贝
-    if has('mouse')
-        set mouse=a
-    endif
-    "au GUIEnter * simalt ~x "启动后最大化
-endif
-
-" 关闭备份
-"set nobackup
-"set nowritebackup
 
 "光标上下保留的最小行数
 set scrolloff=4
 set t_Co=256 " Explicitly tell vim that the terminal has 256 colors "
 set report=0 " always report number of lines changed "
-"配色方案
-"colorscheme vividchalk " desert molokai freya
-colorscheme default
 set showmatch " show matching bracket (briefly jump)
 set showcmd " show typed command in status bar
 "set title " show file in titlebar
@@ -270,15 +227,11 @@ set matchpairs+=<:> " specially for html
 
 "总是显示标签栏
 set showtabline=2
-"中文帮助文档
-" set helplang=cn
 "最大标签页数
 set tabpagemax=12
 " 移除菜单栏、工具栏和滚动条
 set guioptions-=m
 set guioptions-=T
-"set guioptions-=r
-"set guioptions-=b
 
 "水平滚动条
 if (has("gui_running"))
@@ -298,7 +251,7 @@ endif
 " set columns=90
 
 "设置备份文件目录
-set backupdir=/public/.vims_backup
+" set backupdir=/public/.vims_backup
 
 "让 vim 保存一个原始文件，且后缀是
 "set patchmode=.orig
@@ -571,11 +524,6 @@ function! AdjustWindowHeight(minheight, maxheight)
   exe max([min([line("$"), a:maxheight]), a:minheight]) . "wincmd _"
 endfunction
 
-" MRU
-let MRU_File='/Users/mg/.vim/_vim_mru_files'
-let MRU_Max_Entries = 1000
-cmap mru MRU<CR>
-
 
 " limitMate
 let delimitMate_autoclose = 1
@@ -590,45 +538,6 @@ let g:tagbar_left = 1
 "nnoremap <silent> <F9> :TagbarToggle<CR>
 nnoremap <leader>tg :TagbarToggle<CR>
 "autocmd FileType xyz nested :TagbarOpen
-
-
-" autopep8
-map <F11> :call FormartSrc()<CR>
-"定义FormartSrc()
-func! FormartSrc()
-exec "w"
-if &filetype == 'c'
-exec "!astyle --style=ansi --one-line=keep-statements -a --suffix=none %"
-elseif &filetype == 'cpp' || &filetype == 'hpp'
-exec "r !astyle --style=ansi --one-line=keep-statements -a --suffix=none %> /dev/null 2>&1"
-elseif &filetype == 'perl'
-exec "!astyle --style=gnu --suffix=none %"
-elseif &filetype == 'py'||&filetype == 'python'
-exec "r !autopep8 -i --aggressive %"
-elseif &filetype == 'java'
-exec "!astyle --style=java --suffix=none %"
-elseif &filetype == 'jsp'
-exec "!astyle --style=gnu --suffix=none %"
-elseif &filetype == 'xml'
-exec "!astyle --style=gnu --suffix=none %"
-endif
-exec "e! %"
-endfunc
-"结束定义FormartSrc
-
-
-" ============== SuperTab ============="
-" let g:SuperTabMappingTabLiteral = "<C-n>"
-
-
-
-" "============== UltiSnips ======================
-" let g:UltiSnipsSnippetDirectories=['UltiSnips', '../../mycoolsnippets']
-" let g:UltiSnipsExpandTrigger="<tab>"
-" let g:UltiSnipsJumpForwardTrigger="<tab>"
-" let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-" "let g:UltiSnipsSnippetDirectories=['E:\Program Files\Vim\vimfiles\bundle\mycoolsnippets']
-" "let g:UltiSnipsDoHash=0
 
 
 " Rope-vim
@@ -658,7 +567,7 @@ let g:syntastic_ignore_files = ['\.go$']
 
 
 " 设置撤销文件 un~ 的保存位置
-set undodir=/public/.vims_backup/
+" set undodir=/public/.vims_backup/
 set undofile
 
 
@@ -708,8 +617,8 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 " Enable snipMate compatibility feature.
 let g:neosnippet#enable_snipmate_compatibility = 1
 " Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/vimfiles/bundle/vim-snippets/snippets, ~/vimfiles/mycoolsnippets'
-"let g:neosnippet#snippets_directory='~/vimfiles/mycoolsnippets'
+let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets, ~/.vim/mycoolsnippets'
+"let g:neosnippet#snippets_directory='~/.vim/mycoolsnippets'
 
 " " SuperTab like snippets behavior.
 imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
@@ -780,7 +689,7 @@ nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
 
 " vim: set ft=vim:
 "
-set backupdir=/public/.vims_backup
+" set backupdir=/public/.vims_backup
 
 
 " =============  CtrlPFunky ==================
@@ -945,3 +854,6 @@ let g:go_highlight_structs = 1
 
 " rust
 autocmd BufNewFile,BufRead *.rs set filetype=rust
+
+" neomru.vim
+cmap mru<CR> Unite neomru/file<CR>
