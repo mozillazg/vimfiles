@@ -349,6 +349,7 @@ set fdm=indent " 按缩进折叠
 " let g:flake8_ignore="E501"
 
 " jedi-vim
+" let g:jedi#force_py_version = 2
 let g:jedi#use_tabs_not_buffers = 1
 let g:jedi#popup_on_dot = 0
 let g:jedi#completions_command = '<C-j>'
@@ -856,4 +857,4 @@ let g:go_highlight_structs = 1
 autocmd BufNewFile,BufRead *.rs set filetype=rust
 
 " neomru.vim
-cmap mru<CR> Unite neomru/file<CR>
+cmap MRU Unite neomru/file<CR>
