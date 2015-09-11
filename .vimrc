@@ -857,4 +857,4 @@ let g:go_highlight_structs = 1
 autocmd BufNewFile,BufRead *.rs set filetype=rust
 
 " neomru.vim
-cmap MRU Unite neomru/file<CR>
+cmap MRU<CR> Unite neomru/file<CR>
