@@ -28,11 +28,10 @@ NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/context_filetype.vim'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'flazz/vim-colorschemes'
+NeoBundle 'gabrielpoca/vim-language-shortcuts'
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
@@ -52,7 +51,6 @@ NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'nvie/vim-flake8'
 NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'szw/vim-ctrlspace'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'altercation/vim-colors-solarized'
@@ -82,6 +80,7 @@ NeoBundle 'junegunn/seoul256.vim'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'mxw/vim-jsx'
 NeoBundle 'mrk21/yaml-vim'
+NeoBundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 " 让 * # 支持搜索所选文字
 NeoBundle 'thinca/vim-visualstar'
@@ -813,7 +812,7 @@ set background=light
 
 set t_Co=8
 let g:solarized_termcolors=256
-" colorscheme solarized
+colorscheme solarized
 
 " ====== vim-session
 let g:session_autosave = 'no'
@@ -856,5 +855,14 @@ let g:go_highlight_structs = 1
 " rust
 autocmd BufNewFile,BufRead *.rs set filetype=rust
 
-" neomru.vim
-cmap MRU<CR> Unite neomru/file<CR>
+" ctrlp.vim
+cmap mru<CR> CtrlPMRUFiles<CR>
+cmap MRU<CR> CtrlPMRUFiles<CR>
+" open file in new tab
+let g:ctrlp_prompt_mappings = {
+\ 'AcceptSelection("e")': ['<2-LeftMouse>'],
+\ 'AcceptSelection("t")': ['<cr>'],
+\ }
+
+" powerline
+let g:Powerline_symbols = 'fancy'
