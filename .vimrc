@@ -43,8 +43,11 @@ NeoBundle 'honza/vim-snippets'
 NeoBundle 'vim-jp/autofmt'
 NeoBundle 'mjbrownie/vim-htmldjango_omnicomplete'
 NeoBundle 'scrooloose/syntastic'
-"NeoBundle 'hallison/vim-markdown'
 NeoBundle 'sukima/xmledit'
+NeoBundle 'plasticboy/vim-markdown'
+" NeoBundle 'greyblake/vim-preview'
+NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'kannokanno/previm'
 NeoBundle 'majutsushi/tagbar'
 " NeoBundle 'ervandew/supertab'
 NeoBundle 'jelera/vim-javascript-syntax'
@@ -80,7 +83,7 @@ NeoBundle 'junegunn/seoul256.vim'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'mxw/vim-jsx'
 NeoBundle 'mrk21/yaml-vim'
-NeoBundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+" NeoBundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 " 让 * # 支持搜索所选文字
 NeoBundle 'thinca/vim-visualstar'
@@ -547,21 +550,13 @@ map <leader>j :RopeGotoDefinition<CR>
 map <leader><S-D> :SyntasticToggleMode<CR>
 "exec SyntasticToggleMode
 "map <F7> :SyntasticCheck<CR>
-"let g:syntastic_python_checkers=['python', 'pep8', 'py3kwarn', 'flake8', 'pylama']
-" let g:syntastic_python_checkers=['pylama']
 let g:syntastic_python_checkers=['flake8']
 " let g:syntastic_python_flake8_ignore='E501,E121'
 let g:syntastic_auto_loc_list=1
-" let g:syntastic_python_pylama_args='-l pep8,mccabe,pyflakes -i E501,E121,E126'
-" let g:syntastic_python_pylama_args='-l pep8,mccabe,pyflakes -i E501'
-" let g:syntastic_python_pylama_ignore='E501,E121'
-" let g:syntastic_python_flake8_args='--ignore E501'  " ,E121'
-" let g:lint_ignore='E501,E121'
-
 " CSS
-" let g:syntastic_css_checkers=['csslint']
 let g:syntastic_css_checkers=['csslint']
-
+" sh
+let g:syntastic_sh_checkers=['shellcheck']
 " ignore
 let g:syntastic_ignore_files = ['\.go$']
 
@@ -812,7 +807,7 @@ set background=light
 
 set t_Co=8
 let g:solarized_termcolors=256
-colorscheme solarized
+" colorscheme solarized
 
 " ====== vim-session
 let g:session_autosave = 'no'
@@ -865,4 +860,7 @@ let g:ctrlp_prompt_mappings = {
 \ }
 
 " powerline
-let g:Powerline_symbols = 'fancy'
+" let g:Powerline_symbols = 'fancy'
+
+"vim-airline
+let g:airline_powerline_fonts = 1
