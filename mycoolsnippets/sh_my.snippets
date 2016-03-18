@@ -1,0 +1,8 @@
+# http://redsymbol.net/articles/unofficial-bash-strict-mode/
+snippet init
+options head
+    #!/usr/bin/env bash
+    set -euo pipefail
+    IFS=$'\n\t'
+
+    ${1}

@@ -77,6 +77,7 @@ NeoBundle 'rking/ag.vim'
 NeoBundle 'editorconfig/editorconfig-vim'
 " NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'Valloric/MatchTagAlways'
+NeoBundle 'posva/vim-vue'
 
 NeoBundle 'endel/vim-github-colorscheme'
 NeoBundle 'junegunn/seoul256.vim'
@@ -613,7 +614,6 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 let g:neosnippet#enable_snipmate_compatibility = 1
 " Tell Neosnippet about the other snippets
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets, ~/.vim/mycoolsnippets'
-"let g:neosnippet#snippets_directory='~/.vim/mycoolsnippets'
 
 " " SuperTab like snippets behavior.
 imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
