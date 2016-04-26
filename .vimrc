@@ -52,7 +52,10 @@ NeoBundle 'majutsushi/tagbar'
 " NeoBundle 'ervandew/supertab'
 NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'othree/html5.vim'
-NeoBundle 'nvie/vim-flake8'
+NeoBundle 'nvie/vim-flake8', {
+            \ "autoload": {
+            \   "filetypes": ["python", "python3", "djangohtml"]
+            \ }}
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'szw/vim-ctrlspace'
 NeoBundle 'tomasr/molokai'
@@ -254,9 +257,6 @@ endif
 " set lines=30
 " set columns=90
 
-"设置备份文件目录
-" set backupdir=/public/.vims_backup
-
 "让 vim 保存一个原始文件，且后缀是
 "set patchmode=.orig
 
@@ -351,6 +351,12 @@ set fdm=indent " 按缩进折叠
 " flake8
 " let g:flake8_ignore="E501,E121"
 " let g:flake8_ignore="E501"
+" autocmd BufWritePost *.py call Flake8()
+" let g:flake8_builtins="_,apply"
+" let g:flake8_ignore="E4"
+" let g:flake8_max_line_length=120
+" let g:flake8_max_complexity=10
+" let g:flake8_cmd="/opt/python/bin/flake8"
 
 " jedi-vim
 " let g:jedi#force_py_version = 2
@@ -554,6 +560,7 @@ map <leader><S-D> :SyntasticToggleMode<CR>
 "map <F7> :SyntasticCheck<CR>
 let g:syntastic_python_checkers=['flake8']
 " let g:syntastic_python_flake8_ignore='E501,E121'
+" let g:syntastic_python_flake8_args="--max-line-length=120"
 let g:syntastic_auto_loc_list=1
 " CSS
 let g:syntastic_css_checkers=['csslint']
@@ -561,11 +568,6 @@ let g:syntastic_css_checkers=['csslint']
 let g:syntastic_sh_checkers=['shellcheck']
 " ignore
 let g:syntastic_ignore_files = ['\.go$']
-
-
-" 设置撤销文件 un~ 的保存位置
-" set undodir=/public/.vims_backup/
-set undofile
 
 
 " solarized

@@ -8,7 +8,7 @@ function main() {
     curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > install_neobundle.sh
     sh ./install_neobundle.sh && rm ./install_neobundle.sh
     pip install -r ~/.vim/requirements.txt --user
-    touch ~/.viminfo; mkdir ~/.vimundo
+    touch ~/.viminfo; mkdir ~/.vimundo; mkdir ~/.vim/swap
     ln -s ~/.vim/.vimrc ~/.vimrc
     vim +NeoBundleInstall +qall
 }
