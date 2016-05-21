@@ -81,6 +81,7 @@ NeoBundle 'editorconfig/editorconfig-vim'
 " NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'Valloric/MatchTagAlways'
 NeoBundle 'posva/vim-vue'
+NeoBundle 'fisadev/vim-isort'
 
 NeoBundle 'endel/vim-github-colorscheme'
 NeoBundle 'junegunn/seoul256.vim'
