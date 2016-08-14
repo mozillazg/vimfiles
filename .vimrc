@@ -47,7 +47,7 @@ NeoBundle 'sukima/xmledit'
 NeoBundle 'plasticboy/vim-markdown'
 " NeoBundle 'greyblake/vim-preview'
 NeoBundle 'tyru/open-browser.vim'
-NeoBundle 'kannokanno/previm'
+NeoBundle 'mozillazg/previm', {'rev': 'patch-1'}
 NeoBundle 'majutsushi/tagbar'
 " NeoBundle 'ervandew/supertab'
 NeoBundle 'jelera/vim-javascript-syntax'
