@@ -32,6 +32,7 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'gabrielpoca/vim-language-shortcuts'
+NeoBundle 'Konfekt/FastFold'
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
@@ -45,11 +46,9 @@ NeoBundle 'mjbrownie/vim-htmldjango_omnicomplete'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'sukima/xmledit'
 NeoBundle 'plasticboy/vim-markdown'
-" NeoBundle 'greyblake/vim-preview'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'mozillazg/previm', {'rev': 'patch-1'}
 NeoBundle 'majutsushi/tagbar'
-" NeoBundle 'ervandew/supertab'
 NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'nvie/vim-flake8', {
@@ -78,7 +77,6 @@ NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'gregsexton/MatchTag'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'editorconfig/editorconfig-vim'
-" NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'Valloric/MatchTagAlways'
 NeoBundle 'posva/vim-vue'
 NeoBundle 'fisadev/vim-isort'
@@ -348,16 +346,6 @@ set linebreak
 
 " 代码折叠
 set fdm=indent " 按缩进折叠
-
-" flake8
-" let g:flake8_ignore="E501,E121"
-" let g:flake8_ignore="E501"
-" autocmd BufWritePost *.py call Flake8()
-" let g:flake8_builtins="_,apply"
-" let g:flake8_ignore="E4"
-" let g:flake8_max_line_length=120
-" let g:flake8_max_complexity=10
-" let g:flake8_cmd="/opt/python/bin/flake8"
 
 " jedi-vim
 " let g:jedi#force_py_version = 2
