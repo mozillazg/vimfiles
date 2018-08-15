@@ -47,7 +47,7 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'sukima/xmledit'
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'tyru/open-browser.vim'
-NeoBundle 'mozillazg/previm', {'rev': 'patch-1'}
+NeoBundle 'mozillazg/previm'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'othree/html5.vim'
@@ -157,7 +157,7 @@ set encoding=utf-8
 "新建文件编码
 set fenc=utf-8
 "vim在与屏幕/键盘交互时用的编码
-set termencoding=utf-8,gbk,cp936,gb18030,big5,euc-jp,euc-kr,latin1,ucs-bom
+" set termencoding=utf-8,gbk,cp936,gb18030,big5,euc-jp,euc-kr,latin1,ucs-bom
 "打开文件时用的编码
 set fileencodings=utf-8,gbk,cp936,gb18030,big5,euc-jp,euc-kr,latin1,ucs-bom
 
@@ -341,7 +341,7 @@ set updatetime=1
 set linebreak
 
 " 高亮光标所在列
-"set cursorcolumn
+" set cursorcolumn
 
 
 " 代码折叠
@@ -349,8 +349,8 @@ set fdm=indent " 按缩进折叠
 
 " jedi-vim
 " let g:jedi#force_py_version = 2
-let g:jedi#use_tabs_not_buffers = 1
-let g:jedi#popup_on_dot = 0
+" let g:jedi#use_tabs_not_buffers = 1
+" let g:jedi#popup_on_dot = 0
 let g:jedi#completions_command = '<C-j>'
 " let g:jedi#completions_command = '<Tab>'
 
